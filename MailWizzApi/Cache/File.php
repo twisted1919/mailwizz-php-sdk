@@ -48,7 +48,7 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
 			}
 		}
 		$key = sha1($key);
-		return file_put_contents($this->getFilesPath() . '/' . $key.'.bin', $value);
+		return @file_put_contents($this->getFilesPath() . '/' . $key.'.bin', $value);
 	}
 	
 	/**
@@ -106,7 +106,9 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
 	 */
 	public function setFilesPath($path)
 	{
-		$this->_filesPath = $path;
+		if (file_exists($path) && is_dir($path)) {
+			$this->_filesPath = $path;
+		}
 		return $this;
 	}
 	
