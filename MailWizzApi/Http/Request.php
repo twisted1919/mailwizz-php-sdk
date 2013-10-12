@@ -73,7 +73,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 			$etagCache		= null;
 			$params			= $getParams;
 
-			foreach (array('MW_PUBLIC_KEY', 'MW_TIMESTAMP', 'MW_REMOTE_ADDR') as $header) {
+			foreach (array('X-MW-PUBLIC-KEY', 'X-MW-TIMESTAMP', 'X-MW-REMOTE-ADDR') as $header) {
 				$params[$header] = $client->headers->itemAt($header);
 			}
 			
@@ -223,9 +223,9 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		$timestamp	= time();
 
 		$specialHeaderParams = array(
-			'MW_PUBLIC_KEY' => $publicKey,
-			'MW_TIMESTAMP'	=> $timestamp,
-			'MW_REMOTE_ADDR'=> isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,									
+			'X-MW-PUBLIC-KEY' => $publicKey,
+			'X-MW-TIMESTAMP'	=> $timestamp,
+			'X-MW-REMOTE-ADDR'=> isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,									
 		);
 		
 		foreach ($specialHeaderParams as $key => $value) {
@@ -244,6 +244,6 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		$signatureString	= strtoupper($client->method) . ' ' . $requestUrl . $separator . http_build_query($params);
 		$signature			= hash_hmac('sha1', $signatureString, $privateKey, false);
 		
-		$client->headers->add('MW_SIGNATURE', $signature);
+		$client->headers->add('X-MW-SIGNATURE', $signature);
 	}	
 }
