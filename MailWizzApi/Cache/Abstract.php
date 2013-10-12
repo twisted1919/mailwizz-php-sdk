@@ -50,4 +50,11 @@ abstract class MailWizzApi_Cache_Abstract extends MailWizzApi_Base
 	 * @return bool
 	 */
 	abstract public function delete($key);
+	
+	/**
+	 * Delete all data from cache
+	 * 
+	 * @return bool
+	 */
+	abstract public function flush();
 }

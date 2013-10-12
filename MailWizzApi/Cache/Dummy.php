@@ -59,4 +59,16 @@ class MailWizzApi_Cache_Dummy extends MailWizzApi_Cache_Abstract
 	{
 		return true;
 	}
+	
+	/**
+	 * Delete all cached data.
+	 * 
+	 * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
+	 * 
+	 * @return bool
+	 */
+	public function flush()
+	{
+		return true;
+	}
 }

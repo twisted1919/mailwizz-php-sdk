@@ -143,7 +143,7 @@
 </span><span id="56" class="l"><a class="l" href="#56"> 56: </a>    {
 </span><span id="57" class="l"><a class="l" href="#57"> 57: </a>        <span class="php-var">$client</span> = <span class="php-keyword1">new</span> MailWizzApi_Http_Client(<span class="php-keyword1">array</span>(
 </span><span id="58" class="l"><a class="l" href="#58"> 58: </a>            <span class="php-quote">'method'</span>        =&gt; MailWizzApi_Http_Client::METHOD_POST,
-</span><span id="59" class="l"><a class="l" href="#59"> 59: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers/create'</span>, <span class="php-var">$listUid</span>)),
+</span><span id="59" class="l"><a class="l" href="#59"> 59: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers'</span>, <span class="php-var">$listUid</span>)),
 </span><span id="60" class="l"><a class="l" href="#60"> 60: </a>            <span class="php-quote">'paramsPost'</span>    =&gt; <span class="php-var">$data</span>,
 </span><span id="61" class="l"><a class="l" href="#61"> 61: </a>        ));
 </span><span id="62" class="l"><a class="l" href="#62"> 62: </a>        
@@ -162,7 +162,7 @@
 </span><span id="75" class="l"><a class="l" href="#75"> 75: </a>    {
 </span><span id="76" class="l"><a class="l" href="#76"> 76: </a>        <span class="php-var">$client</span> = <span class="php-keyword1">new</span> MailWizzApi_Http_Client(<span class="php-keyword1">array</span>(
 </span><span id="77" class="l"><a class="l" href="#77"> 77: </a>            <span class="php-quote">'method'</span>        =&gt; MailWizzApi_Http_Client::METHOD_PUT,
-</span><span id="78" class="l"><a class="l" href="#78"> 78: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers/%s/update'</span>, <span class="php-var">$listUid</span>, <span class="php-var">$subscriberUid</span>)),
+</span><span id="78" class="l"><a class="l" href="#78"> 78: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers/%s'</span>, <span class="php-var">$listUid</span>, <span class="php-var">$subscriberUid</span>)),
 </span><span id="79" class="l"><a class="l" href="#79"> 79: </a>            <span class="php-quote">'paramsPut'</span>     =&gt; <span class="php-var">$data</span>,
 </span><span id="80" class="l"><a class="l" href="#80"> 80: </a>        ));
 </span><span id="81" class="l"><a class="l" href="#81"> 81: </a>        
@@ -180,7 +180,7 @@
 </span><span id="93" class="l"><a class="l" href="#93"> 93: </a>    {
 </span><span id="94" class="l"><a class="l" href="#94"> 94: </a>        <span class="php-var">$client</span> = <span class="php-keyword1">new</span> MailWizzApi_Http_Client(<span class="php-keyword1">array</span>(
 </span><span id="95" class="l"><a class="l" href="#95"> 95: </a>            <span class="php-quote">'method'</span>        =&gt; MailWizzApi_Http_Client::METHOD_DELETE,
-</span><span id="96" class="l"><a class="l" href="#96"> 96: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers/%s/delete'</span>, <span class="php-var">$listUid</span>, <span class="php-var">$subscriberUid</span>)),
+</span><span id="96" class="l"><a class="l" href="#96"> 96: </a>            <span class="php-quote">'url'</span>           =&gt; <span class="php-var">$this</span>-&gt;config-&gt;getApiUrl(<span class="php-keyword2">sprintf</span>(<span class="php-quote">'lists/%s/subscribers/%s'</span>, <span class="php-var">$listUid</span>, <span class="php-var">$subscriberUid</span>)),
 </span><span id="97" class="l"><a class="l" href="#97"> 97: </a>            <span class="php-quote">'paramsDelete'</span>  =&gt; <span class="php-keyword1">array</span>(),
 </span><span id="98" class="l"><a class="l" href="#98"> 98: </a>        ));
 </span><span id="99" class="l"><a class="l" href="#99"> 99: </a>        

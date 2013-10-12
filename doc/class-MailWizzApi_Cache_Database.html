@@ -145,7 +145,7 @@ order to cache data into a database.</p>
 href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwizz.com</a>&gt;<br />
 				<b>Since:</b>
 				1.0<br />
-		<b>Located at</b> <a href="source-class-MailWizzApi_Cache_Database.html#12-379" title="Go to source code">Cache/Database.php</a><br />
+		<b>Located at</b> <a href="source-class-MailWizzApi_Cache_Database.html#12-399" title="Go to source code">Cache/Database.php</a><br />
 	</div>
 
 
@@ -258,7 +258,7 @@ retrieve the cached data.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#127-144" title="Go to source code">delete</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#127-149" title="Go to source code">delete</a>( <span>string <var>$key</var></span> )</code>
 
 		<div class="description short">
 			
@@ -294,6 +294,45 @@ delete the cached data.</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="flush" id="_flush">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_flush">#</a>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#151-164" title="Go to source code">flush</a>( )</code>
+
+		<div class="description short">
+			
+<p>Delete all cached data.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete all cached data.</p>
+
+<p>This method implements <code><a href="class-MailWizzApi_Cache_Abstract.html#_flush">MailWizzApi_Cache_Abstract::flush()</a></code>.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="setImportConnection" id="_setImportConnection">
 
 		<td class="attributes"><code>
@@ -305,7 +344,7 @@ delete the cached data.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setImportConnection">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#146-161" title="Go to source code">setImportConnection</a>( <span><code><a href="class-PDO.html">PDO</a></code> <var>$connection</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#166-181" title="Go to source code">setImportConnection</a>( <span><code><a href="class-PDO.html">PDO</a></code> <var>$connection</var></span> )</code>
 
 		<div class="description short">
 			
@@ -354,7 +393,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getImportConnection">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#163-171" title="Go to source code">getImportConnection</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#183-191" title="Go to source code">getImportConnection</a>( )</code>
 
 		<div class="description short">
 			
@@ -391,7 +430,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUsername">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#173-183" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#193-203" title="Go to source code">setUsername</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
 			
@@ -433,7 +472,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUsername">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#185-193" title="Go to source code">getUsername</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#205-213" title="Go to source code">getUsername</a>( )</code>
 
 		<div class="description short">
 			
@@ -470,7 +509,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#195-205" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#215-225" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
 			
@@ -512,7 +551,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPassword">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#207-215" title="Go to source code">getPassword</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#227-235" title="Go to source code">getPassword</a>( )</code>
 
 		<div class="description short">
 			
@@ -549,7 +588,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTableName">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#217-227" title="Go to source code">setTableName</a>( <span>string <var>$name</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#237-247" title="Go to source code">setTableName</a>( <span>string <var>$name</var></span> )</code>
 
 		<div class="description short">
 			
@@ -591,7 +630,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getTableName">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#229-237" title="Go to source code">getTableName</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#249-257" title="Go to source code">getTableName</a>( )</code>
 
 		<div class="description short">
 			
@@ -628,7 +667,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCreateTable">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#239-249" title="Go to source code">setCreateTable</a>( <span>boolean <var>$bool</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#259-269" title="Go to source code">setCreateTable</a>( <span>boolean <var>$bool</var></span> )</code>
 
 		<div class="description short">
 			
@@ -670,7 +709,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCreateTable">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#251-259" title="Go to source code">getCreateTable</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#271-279" title="Go to source code">getCreateTable</a>( )</code>
 
 		<div class="description short">
 			
@@ -707,7 +746,7 @@ already connected to the database using <code><a href="class-PDO.html">PDO</a></
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setConnectionString">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#261-274" title="Go to source code">setConnectionString</a>( <span>string <var>$string</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#281-294" title="Go to source code">setConnectionString</a>( <span>string <var>$string</var></span> )</code>
 
 		<div class="description short">
 			
@@ -752,7 +791,7 @@ href="http://php.net/manual/en/ref.pdo-mysql.connection.php">http://php.net/manu
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConnectionString">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#276-284" title="Go to source code">getConnectionString</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#296-304" title="Go to source code">getConnectionString</a>( )</code>
 
 		<div class="description short">
 			
@@ -789,7 +828,7 @@ href="http://php.net/manual/en/ref.pdo-mysql.connection.php">http://php.net/manu
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createTable">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#286-320" title="Go to source code">createTable</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#306-340" title="Go to source code">createTable</a>( )</code>
 
 		<div class="description short">
 			
@@ -825,7 +864,7 @@ created otherwise it will cause unnecessary overhead.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConnection">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#322-362" title="Go to source code">getConnection</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#342-382" title="Go to source code">getConnection</a>( )</code>
 
 		<div class="description short">
 			
@@ -862,7 +901,7 @@ created otherwise it will cause unnecessary overhead.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_closeConnection">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Database.html#364-378" title="Go to source code">closeConnection</a>( )</code>
+		<code><a href="source-class-MailWizzApi_Cache_Database.html#384-398" title="Go to source code">closeConnection</a>( )</code>
 
 		<div class="description short">
 			

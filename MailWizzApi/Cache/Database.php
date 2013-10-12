@@ -138,9 +138,29 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
 	public function delete($key)
 	{
 		$key = sha1($key);
+		
+		if (isset($this->_loaded[$key])) {
+			unset($this->_loaded[$key]);
+		}
+		
 		$con = $this->getConnection();
 		$sth = $con->prepare('DELETE FROM `'.$this->getTableName().'` WHERE `key` = :k');
 		return $sth->execute(array(':k' => $key));
+	}
+	
+	/**
+	 * Delete all cached data.
+	 * 
+	 * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
+	 * 
+	 * @return bool
+	 */
+	public function flush()
+	{
+		$this->_loaded = array();
+		$con = $this->getConnection();
+		$sth = $con->prepare('DELETE FROM `'.$this->getTableName().'` WHERE 1');
+		return $sth->execute();
 	}
 	
 	/**

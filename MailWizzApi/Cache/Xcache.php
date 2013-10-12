@@ -60,7 +60,7 @@ class MailWizzApi_Cache_Xcache extends MailWizzApi_Cache_Abstract
 	 * For consistency, the key will go through sha1() 
 	 * before it will be used to delete the cached data.
 	 * 
-	 * This method implements This method implements {@link MailWizzApi_Cache_Abstract::delete()}.
+	 * This method implements {@link MailWizzApi_Cache_Abstract::delete()}.
 	 * 
 	 * @param string $key
 	 * @return bool
@@ -68,5 +68,22 @@ class MailWizzApi_Cache_Xcache extends MailWizzApi_Cache_Abstract
 	public function delete($key)
 	{
 		return xcache_unset(sha1($key));
+	}
+	
+	/**
+	 * Delete all cached data.
+	 * 
+	 * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
+	 * 
+	 * @return bool
+	 */
+	public function flush()
+	{
+		for ($i = 0, $max = xcache_count(XC_TYPE_VAR); $i < $max; $i++) {
+			if (xcache_clear_cache(XC_TYPE_VAR, $i) === false) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

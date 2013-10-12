@@ -69,4 +69,16 @@ class MailWizzApi_Cache_Apc extends MailWizzApi_Cache_Abstract
 	{
 		return apc_delete(sha1($key));
 	}
+	
+	/**
+	 * Delete all cached data.
+	 * 
+	 * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
+	 * 
+	 * @return bool
+	 */
+	public function flush()
+	{
+		return apc_clear_cache('user');
+	}
 }

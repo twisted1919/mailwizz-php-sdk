@@ -56,7 +56,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_POST,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/create', $listUid)),
+			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers', $listUid)),
 			'paramsPost'	=> $data,
 		));
 		
@@ -75,7 +75,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_PUT,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s/update', $listUid, $subscriberUid)),
+			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', $listUid, $subscriberUid)),
 			'paramsPut'		=> $data,
 		));
 		
@@ -93,7 +93,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_DELETE,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s/delete', $listUid, $subscriberUid)),
+			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', $listUid, $subscriberUid)),
 			'paramsDelete'	=> array(),
 		));
 		

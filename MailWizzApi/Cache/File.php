@@ -91,11 +91,30 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
 	public function delete($key)
 	{
 		$key = sha1($key);
+		
+		if (isset($this->_loaded[$key])) {
+			unset($this->_loaded[$key]);
+		}
+		
 		if (is_file($file = $this->getFilesPath() . '/' . $key.'.bin')) {
 			@unlink($file);
 			return true;
 		}
+		
 		return false;
+	}
+	
+	/**
+	 * Delete all cached data.
+	 * 
+	 * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
+	 * 
+	 * @return bool
+	 */
+	public function flush()
+	{
+		$this->_loaded = array();
+		return $this->doFlush($this->getFilesPath());
 	}
 	
 	/**
@@ -127,5 +146,40 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
 			$this->_filesPath = dirname(__FILE__) . '/data/cache';
 		}
 		return $this->_filesPath;
+	}
+	
+	/**
+	 * Helper method to clear the cache directory contents
+	 * 
+	 * @param string $path
+	 * @return bool
+	 */
+	protected function doFlush($path)
+	{
+		if (!file_exists($path) || !is_dir($path)) {
+			return false;
+		}
+		
+		if (($handle = opendir($path)) === false) {
+			return false;
+		}
+		
+		while (($file = readdir($handle)) !== false) {
+			
+			if($file[0] === '.') {
+				continue;
+			}
+			
+			$fullPath=$path.DIRECTORY_SEPARATOR.$file;
+			
+			if(is_dir($fullPath)) {
+				$this->flush($fullPath);
+			} else {
+				@unlink($fullPath);
+			}
+		}
+		
+		closedir($handle);
+		return true;
 	}
 }
