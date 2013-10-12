@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class MailWizzApi_Autoloader | MailWizz PHP-SDK</title>
+
+	<script type="text/javascript" src="resources/combined.js?1925257259"></script>
+	<script type="text/javascript" src="elementlist.js?809423451"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active"><a href="package-MailWizzApi.html">MailWizzApi<span></span></a>
+						<ul>
+				<li><a href="package-MailWizzApi.Cache.html">Cache</a>
+						</li>
+				<li><a href="package-MailWizzApi.Endpoint.html">Endpoint</a>
+						</li>
+				<li><a href="package-MailWizzApi.Http.html">Http</a>
+						</li>
+							</ul></li>
+				<li><a href="package-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-MailWizzApi_Autoloader.html">MailWizzApi_Autoloader</a></li>
+				<li><a href="class-MailWizzApi_Base.html">MailWizzApi_Base</a></li>
+				<li><a href="class-MailWizzApi_Config.html">MailWizzApi_Config</a></li>
+				<li><a href="class-MailWizzApi_Json.html">MailWizzApi_Json</a></li>
+				<li><a href="class-MailWizzApi_Params.html">MailWizzApi_Params</a></li>
+				<li><a href="class-MailWizzApi_ParamsIterator.html">MailWizzApi_ParamsIterator</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-MailWizzApi.html" title="Summary of MailWizzApi"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class MailWizzApi_Autoloader</h1>
+
+
+	<div class="description">
+	
+<p>The MailWizzApi Autoloader class.</p>
+
+<p>From within a Yii Application, you would load this as:</p>
+
+<pre>
+require_once(Yii::getPathOfAlias('application.vendors.MailWizzApi.Autoloader').'.php');
+Yii::registerAutoloader(array('MailWizzApi_Autoloader', 'autoloader'), true);
+</pre>
+
+<p>Alternatively you can:</p>
+
+<pre>
+require_once('Path/To/MailWizzApi/Autoloader.php');
+MailWizzApi_Autoloader::register();
+</pre>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-MailWizzApi.html">MailWizzApi</a><br />
+
+				<b>Copyright:</b>
+				2013 <a href="http://www.mailwizz.com/">http://www.mailwizz.com/</a><br />
+				<b>License:</b>
+				<a href="http://www.mailwizz.com/api-client-license/">http://www.mailwizz.com/api-client-license/</a><br />
+				<b>Author:</b>
+				Serban George Cristian &lt;<a
+href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwizz.com</a>&gt;<br />
+				<b>Since:</b>
+				1.0<br />
+		<b>Located at</b> <a href="source-class-MailWizzApi_Autoloader.html#12-58" title="Go to source code">Autoloader.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="autoloader" id="_autoloader">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_autoloader">#</a>
+		<code><a href="source-class-MailWizzApi_Autoloader.html#34-49" title="Go to source code">autoloader</a>( <span>string <var>$class</var></span> )</code>
+
+		<div class="description short">
+			
+<p>The registrable autoloader</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>The registrable autoloader</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$class</var></dt>
+					<dd><code>string</code><br>$class</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="register" id="_register">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_register">#</a>
+		<code><a href="source-class-MailWizzApi_Autoloader.html#51-57" title="Go to source code">register</a>( )</code>
+
+		<div class="description short">
+			
+<p>Registers the MailWizzApi_Autoloader::autoloader()</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Registers the MailWizzApi_Autoloader::autoloader()</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		MailWizz PHP-SDK API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
