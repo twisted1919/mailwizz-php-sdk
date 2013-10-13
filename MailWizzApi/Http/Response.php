@@ -147,7 +147,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
 	 */
 	public function __construct(MailWizzApi_Http_Request $request)
 	{
-		$this->request = $request;
+		// $this->request = $request;
 		$this->populate($request->params->toArray());
 	}
 	

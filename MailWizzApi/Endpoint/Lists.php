@@ -19,14 +19,13 @@
  */
 class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 {
-	
 	/**
-	 * List subscribers from a certain mail list
+	 * Get all the mail list of the current customer
 	 * 
-	 * @param string $listUid
+	 * Note, the results returned by this endpoint can be cached.
+	 * 
 	 * @param integer $page
 	 * @param integer $perPage
-	 * @param array $fields 
 	 * @return MailWizzApi_Http_Response
 	 */
 	public function getLists($page = 1, $perPage = 10)
@@ -35,8 +34,8 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
 			'url' 			=> $this->config->getApiUrl('lists'),
 			'paramsGet'		=> array(
-				'page'		=> $page, 
-				'per_page'	=> $perPage
+				'page'		=> (int)$page, 
+				'per_page'	=> (int)$perPage
 			),
 			'getResponseHeaders' => true,
 		));
