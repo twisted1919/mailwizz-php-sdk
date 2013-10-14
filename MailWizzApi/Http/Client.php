@@ -90,6 +90,11 @@ class MailWizzApi_Http_Client extends MailWizzApi_Base
 	public $getResponseHeaders = false;
 	
 	/**
+	 * @var bool whether to cache the request response.
+	 */
+	public $enableCache = false;
+	
+	/**
 	 * @var string the method used in the request.
 	 */
 	public $method = self::METHOD_GET;

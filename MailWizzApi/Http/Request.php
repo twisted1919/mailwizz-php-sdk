@@ -52,7 +52,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		
 		$client			= $this->client;
 		$registry		= $this->registry;
-		$isCacheable	= $registry->contains('cache') && $client->isGetMethod && $client->getResponseHeaders;
+		$isCacheable	= $registry->contains('cache') && $client->isGetMethod && $client->enableCache;
 		$requestUrl		= rtrim($client->url, '/'); // no trailing slash
 		$scheme			= parse_url($requestUrl, PHP_URL_SCHEME);
 
@@ -68,6 +68,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		$this->sign($requestUrl);
 
 		if ($isCacheable) {
+			$client->getResponseHeaders = true;
 			
 			$bodyFromCache	= null;
 			$etagCache		= null;
@@ -223,9 +224,9 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		$timestamp	= time();
 
 		$specialHeaderParams = array(
-			'X-MW-PUBLIC-KEY' => $publicKey,
+			'X-MW-PUBLIC-KEY'	=> $publicKey,
 			'X-MW-TIMESTAMP'	=> $timestamp,
-			'X-MW-REMOTE-ADDR'=> isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,									
+			'X-MW-REMOTE-ADDR'	=> isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,									
 		);
 		
 		foreach ($specialHeaderParams as $key => $value) {

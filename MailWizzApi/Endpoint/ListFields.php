@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the lists endpoint for MailWizzApi PHP-SDK.
+ * This file contains the lists fields endpoint for MailWizzApi PHP-SDK.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
@@ -10,33 +10,29 @@
  
  
 /**
- * MailWizzApi_Endpoint_Lists handles all the API calls for lists.
+ * MailWizzApi_Endpoint_ListFields handles all the API calls for handling the list custom fields.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Endpoint
  * @since 1.0
  */
-class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
+class MailWizzApi_Endpoint_ListFields extends MailWizzApi_Base
 {
 	/**
-	 * Get all the mail list of the current customer
+	 * Get fields from a certain mail list
 	 * 
 	 * Note, the results returned by this endpoint can be cached.
 	 * 
-	 * @param integer $page
-	 * @param integer $perPage
+	 * @param string $listUid
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getLists($page = 1, $perPage = 10)
+	public function getFields($listUid)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
-			'url' 			=> $this->config->getApiUrl('lists'),
-			'paramsGet'		=> array(
-				'page'		=> (int)$page, 
-				'per_page'	=> (int)$perPage
-			),
+			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/fields', $listUid)),
+			'paramsGet'		=> array(),
 			'enableCache'	=> true,
 		));
 		

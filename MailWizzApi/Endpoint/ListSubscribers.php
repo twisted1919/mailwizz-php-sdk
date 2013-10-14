@@ -40,7 +40,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 				'per_page'	=> (int)$perPage, 
 				'fields'	=> $fields
 			),
-			'getResponseHeaders' => true,
+			'enableCache'	=> true,
 		));
 		
 		return $response = $client->request();
@@ -61,7 +61,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
 			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s', (string)$listUid, (string)$subscriberUid)),
 			'paramsGet'		=> array(),
-			'getResponseHeaders' => true,
+			'enableCache'	=> true,
 		));
 		
 		return $response = $client->request();
