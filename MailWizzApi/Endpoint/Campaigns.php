@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the lists endpoint for MailWizzApi PHP-SDK.
+ * This file contains the campaigns endpoint for MailWizzApi PHP-SDK.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
@@ -10,17 +10,17 @@
  
  
 /**
- * MailWizzApi_Endpoint_Lists handles all the API calls for lists.
+ * MailWizzApi_Endpoint_Campaigns handles all the API calls for campaigns.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Endpoint
  * @since 1.0
  */
-class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
+class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
 {
 	/**
-	 * Get all the mail list of the current customer
+	 * Get all the campaigns of the current customer
 	 * 
 	 * Note, the results returned by this endpoint can be cached.
 	 * 
@@ -28,11 +28,11 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	 * @param integer $perPage
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getLists($page = 1, $perPage = 10)
+	public function getCampaigns($page = 1, $perPage = 10)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
-			'url' 			=> $this->config->getApiUrl('lists'),
+			'url' 			=> $this->config->getApiUrl('campaigns'),
 			'paramsGet'		=> array(
 				'page'		=> (int)$page, 
 				'per_page'	=> (int)$perPage
@@ -44,18 +44,18 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	}
 	
 	/**
-	 * Get one list
+	 * Get one campaign
 	 * 
 	 * Note, the results returned by this endpoint can be cached.
 	 * 
-	 * @param string $listUid
+	 * @param string $campaignUid
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getList($listUid)
+	public function getCampaign($campaignUid)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s', (string)$listUid)),
+			'url' 			=> $this->config->getApiUrl(sprintf('campaigns/%s', (string)$campaignUid)),
 			'paramsGet'		=> array(),
 			'enableCache'	=> true,
 		));
@@ -64,13 +64,7 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	}
 	
 	/**
-	 * Create a new mail list for the customer
-	 * 
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
+	 * Create a new campaign
 	 * 
 	 * @param array $data
 	 * @return MailWizzApi_Http_Response
@@ -79,48 +73,46 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_POST,
-			'url' 			=> $this->config->getApiUrl('lists'),
-			'paramsPost'	=> $data,
+			'url' 			=> $this->config->getApiUrl('campaigns'),
+			'paramsPost'	=> array(
+				'campaign' => $data
+			),
 		));
 		
 		return $response = $client->request();
 	}
 	
 	/**
-	 * Update existing mail list for the customer
+	 * Update existing campaign for the customer
 	 * 
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
-	 * 
-	 * @param string $listUid
+	 * @param string $campaignUid
 	 * @param array $data
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function update($listUid, array $data)
+	public function update($campaignUid, array $data)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_PUT,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s', $listUid)),
-			'paramsPut'		=> $data,
+			'url' 			=> $this->config->getApiUrl(sprintf('campaigns/%s', $campaignUid)),
+			'paramsPut'		=> array(
+				'campaign' => $data
+			),
 		));
 		
 		return $response = $client->request();
 	}
 	
 	/**
-	 * Delete existing mail list for the customer
+	 * Delete existing campaign for the customer
 	 * 
-	 * @param string $listUid
+	 * @param string $campaignUid
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function delete($listUid)
+	public function delete($campaignUid)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method'	=> MailWizzApi_Http_Client::METHOD_DELETE,
-			'url'		=> $this->config->getApiUrl(sprintf('lists/%s', $listUid)),
+			'url'		=> $this->config->getApiUrl(sprintf('campaigns/%s', $campaignUid)),
 		));
 		
 		return $response = $client->request();

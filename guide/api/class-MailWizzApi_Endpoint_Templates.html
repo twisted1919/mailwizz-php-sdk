@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="generator" content="ApiGen 2.8.0" />
 
-	<title>Class MailWizzApi_Cache_Dummy | MailWizz PHP-SDK</title>
+	<title>Class MailWizzApi_Endpoint_Templates | MailWizz PHP-SDK</title>
 
 	<script type="text/javascript" src="resources/combined.js?1925257259"></script>
 	<script type="text/javascript" src="elementlist.js?141301128"></script>
@@ -23,9 +23,9 @@
 			<ul>
 				<li class="active"><a href="package-MailWizzApi.html">MailWizzApi<span></span></a>
 						<ul>
-				<li class="active"><a href="package-MailWizzApi.Cache.html">Cache</a>
+				<li><a href="package-MailWizzApi.Cache.html">Cache</a>
 						</li>
-				<li><a href="package-MailWizzApi.Endpoint.html">Endpoint</a>
+				<li class="active"><a href="package-MailWizzApi.Endpoint.html">Endpoint</a>
 						</li>
 				<li><a href="package-MailWizzApi.Http.html">Http</a>
 						</li>
@@ -41,12 +41,12 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-MailWizzApi_Cache_Abstract.html">MailWizzApi_Cache_Abstract</a></li>
-				<li><a href="class-MailWizzApi_Cache_Apc.html">MailWizzApi_Cache_Apc</a></li>
-				<li><a href="class-MailWizzApi_Cache_Database.html">MailWizzApi_Cache_Database</a></li>
-				<li class="active"><a href="class-MailWizzApi_Cache_Dummy.html">MailWizzApi_Cache_Dummy</a></li>
-				<li><a href="class-MailWizzApi_Cache_File.html">MailWizzApi_Cache_File</a></li>
-				<li><a href="class-MailWizzApi_Cache_Xcache.html">MailWizzApi_Cache_Xcache</a></li>
+				<li><a href="class-MailWizzApi_Endpoint_Campaigns.html">MailWizzApi_Endpoint_Campaigns</a></li>
+				<li><a href="class-MailWizzApi_Endpoint_Countries.html">MailWizzApi_Endpoint_Countries</a></li>
+				<li><a href="class-MailWizzApi_Endpoint_ListFields.html">MailWizzApi_Endpoint_ListFields</a></li>
+				<li><a href="class-MailWizzApi_Endpoint_Lists.html">MailWizzApi_Endpoint_Lists</a></li>
+				<li><a href="class-MailWizzApi_Endpoint_ListSubscribers.html">MailWizzApi_Endpoint_ListSubscribers</a></li>
+				<li class="active"><a href="class-MailWizzApi_Endpoint_Templates.html">MailWizzApi_Endpoint_Templates</a></li>
 			</ul>
 
 
@@ -74,7 +74,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="package-MailWizzApi.Cache.html" title="Summary of MailWizzApi\Cache"><span>Package</span></a>
+				<a href="package-MailWizzApi.Endpoint.html" title="Summary of MailWizzApi\Endpoint"><span>Package</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -89,13 +89,13 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class MailWizzApi_Cache_Dummy</h1>
+	<h1>Class MailWizzApi_Endpoint_Templates</h1>
 
 
 	<div class="description">
 	
-<p>MailWizzApi_Cache_Dummy is used for testing purposes, when you use the sdk
-with cache but don't want to really cache anything.</p>
+<p>MailWizzApi_Endpoint_Templates handles all the API calls for email
+templates.</p>
 
 	</div>
 
@@ -108,14 +108,7 @@ with cache but don't want to really cache anything.</p>
 		</dd>
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by" />
-			<a href="class-MailWizzApi_Cache_Abstract.html"><span>MailWizzApi_Cache_Abstract</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
-			<img src="resources/inherit.png" alt="Extended by" />
-<b><span>MailWizzApi_Cache_Dummy</span></b>			
+<b><span>MailWizzApi_Endpoint_Templates</span></b>			
 			
 			
 		</dd>
@@ -132,7 +125,7 @@ with cache but don't want to really cache anything.</p>
 		
 		
 		
-		<b>Package:</b> <a href="package-MailWizzApi.html">MailWizzApi</a>\<a href="package-MailWizzApi.Cache.html">Cache</a><br />
+		<b>Package:</b> <a href="package-MailWizzApi.html">MailWizzApi</a>\<a href="package-MailWizzApi.Endpoint.html">Endpoint</a><br />
 
 				<b>Copyright:</b>
 				2013 <a href="http://www.mailwizz.com/">http://www.mailwizz.com/</a><br />
@@ -143,51 +136,51 @@ with cache but don't want to really cache anything.</p>
 href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwizz.com</a>&gt;<br />
 				<b>Since:</b>
 				1.0<br />
-		<b>Located at</b> <a href="source-class-MailWizzApi_Cache_Dummy.html#12-74" title="Go to source code">Cache/Dummy.php</a><br />
+		<b>Located at</b> <a href="source-class-MailWizzApi_Endpoint_Templates.html#12-128" title="Go to source code">Endpoint/Templates.php</a><br />
 	</div>
 
 
 
 	<table class="summary" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="set" id="_set">
+	<tr data-order="getTemplates" id="_getTemplates">
 
 		<td class="attributes"><code>
 			 public 
-			boolean
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_set">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Dummy.html#23-35" title="Go to source code">set</a>( <span>string <var>$key</var></span>, <span>mixed <var>$value</var></span> )</code>
+		<a class="anchor" href="#_getTemplates">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Templates.html#22-44" title="Go to source code">getTemplates</a>( <span>integer <var>$page</var> = <span class="php-num">1</span></span>, <span>integer <var>$perPage</var> = <span class="php-num">10</span></span> )</code>
 
 		<div class="description short">
 			
-<p>Cache data by given key.</p>
+<p>Get all the email templates of the current customer</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Cache data by given key.</p>
+<p>Get all the email templates of the current customer</p>
 
-<p>This method implements <code><a href="class-MailWizzApi_Cache_Abstract.html#_set">MailWizzApi_Cache_Abstract::set()</a></code>.</p>
+<p>Note, the results returned by this endpoint can be cached.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key</dd>
-					<dt><var>$value</var></dt>
-					<dd><code>mixed</code><br>$value</dd>
+					<dt><var>$page</var></dt>
+					<dd><code>integer</code><br>$page</dd>
+					<dt><var>$perPage</var></dt>
+					<dd><code>integer</code><br>$perPage</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br />
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
 				</div>
 
 
@@ -196,42 +189,128 @@ href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwi
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="get" id="_get">
+	<tr data-order="getTemplate" id="_getTemplate">
 
 		<td class="attributes"><code>
 			 public 
-			mixed
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_get">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Dummy.html#37-48" title="Go to source code">get</a>( <span>string <var>$key</var></span> )</code>
+		<a class="anchor" href="#_getTemplate">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Templates.html#46-64" title="Go to source code">getTemplate</a>( <span>string <var>$templateUid</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Get cached data by given key.</p>
+<p>Get one template</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Get cached data by given key.</p>
+<p>Get one template</p>
 
-<p>This method implements <code><a href="class-MailWizzApi_Cache_Abstract.html#_get">MailWizzApi_Cache_Abstract::get()</a></code>.</p>
+<p>Note, the results returned by this endpoint can be cached.</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key</dd>
+					<dt><var>$templateUid</var></dt>
+					<dd><code>string</code><br>$listUid</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>mixed</code><br />
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="create" id="_create">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_create">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Templates.html#66-87" title="Go to source code">create</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Create a new template</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create a new template</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Templates.html#89-111" title="Go to source code">update</a>( <span>string <var>$templateUid</var></span>, <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Update existing template for the customer</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Update existing template for the customer</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$templateUid</var></dt>
+					<dd><code>string</code><br>$templateUid</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
 				</div>
 
 
@@ -244,77 +323,36 @@ href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwi
 
 		<td class="attributes"><code>
 			 public 
-			boolean
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_delete">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Dummy.html#50-61" title="Go to source code">delete</a>( <span>string <var>$key</var></span> )</code>
+		<code><a href="source-class-MailWizzApi_Endpoint_Templates.html#113-127" title="Go to source code">delete</a>( <span>string <var>$templateUid</var></span> )</code>
 
 		<div class="description short">
 			
-<p>Delete cached data by given key.</p>
+<p>Delete existing template for the customer</p>
 
 		</div>
 
 		<div class="description detailed hidden">
 			
-<p>Delete cached data by given key.</p>
-
-<p>This method implements <code><a href="class-MailWizzApi_Cache_Abstract.html#_delete">MailWizzApi_Cache_Abstract::delete()</a></code>.</p>
+<p>Delete existing template for the customer</p>
 
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$key</var></dt>
-					<dd><code>string</code><br>$key</dd>
+					<dt><var>$templateUid</var></dt>
+					<dd><code>string</code><br>$templateUid</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code>boolean</code><br />
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="flush" id="_flush">
-
-		<td class="attributes"><code>
-			 public 
-			boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_flush">#</a>
-		<code><a href="source-class-MailWizzApi_Cache_Dummy.html#63-73" title="Go to source code">flush</a>( )</code>
-
-		<div class="description short">
-			
-<p>Delete all cached data.</p>
-
-		</div>
-
-		<div class="description detailed hidden">
-			
-<p>Delete all cached data.</p>
-
-<p>This method implements <code><a href="class-MailWizzApi_Cache_Abstract.html#_flush">MailWizzApi_Cache_Abstract::flush()</a></code>.</p>
-
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code>boolean</code><br />
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
 				</div>
 
 
@@ -365,14 +403,6 @@ href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwi
 
 
 
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-MailWizzApi_Cache_Abstract.html#properties">MailWizzApi_Cache_Abstract</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-MailWizzApi_Cache_Abstract.html#$_loaded"><var>$_loaded</var></a>
-		</code></td>
-	</tr>
-	</table>
 
 
 

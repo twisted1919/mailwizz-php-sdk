@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the lists endpoint for MailWizzApi PHP-SDK.
+ * This file contains the templates endpoint for MailWizzApi PHP-SDK.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
@@ -10,17 +10,17 @@
  
  
 /**
- * MailWizzApi_Endpoint_Lists handles all the API calls for lists.
+ * MailWizzApi_Endpoint_Templates handles all the API calls for email templates.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Endpoint
  * @since 1.0
  */
-class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
+class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
 {
 	/**
-	 * Get all the mail list of the current customer
+	 * Get all the email templates of the current customer
 	 * 
 	 * Note, the results returned by this endpoint can be cached.
 	 * 
@@ -28,11 +28,11 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	 * @param integer $perPage
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getLists($page = 1, $perPage = 10)
+	public function getTemplates($page = 1, $perPage = 10)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
-			'url' 			=> $this->config->getApiUrl('lists'),
+			'url' 			=> $this->config->getApiUrl('templates'),
 			'paramsGet'		=> array(
 				'page'		=> (int)$page, 
 				'per_page'	=> (int)$perPage
@@ -44,18 +44,18 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	}
 	
 	/**
-	 * Get one list
+	 * Get one template
 	 * 
 	 * Note, the results returned by this endpoint can be cached.
 	 * 
 	 * @param string $listUid
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getList($listUid)
+	public function getTemplate($templateUid)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s', (string)$listUid)),
+			'url' 			=> $this->config->getApiUrl(sprintf('templates/%s', (string)$templateUid)),
 			'paramsGet'		=> array(),
 			'enableCache'	=> true,
 		));
@@ -64,63 +64,63 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 	}
 	
 	/**
-	 * Create a new mail list for the customer
-	 * 
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
+	 * Create a new template
 	 * 
 	 * @param array $data
 	 * @return MailWizzApi_Http_Response
 	 */
 	public function create(array $data)
 	{
+		if (isset($data['content'])) {
+			$data['content'] = base64_encode($data['content']);
+		}
+		
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_POST,
-			'url' 			=> $this->config->getApiUrl('lists'),
-			'paramsPost'	=> $data,
+			'url' 			=> $this->config->getApiUrl('templates'),
+			'paramsPost'	=> array(
+				'template' => $data
+			),
 		));
 		
 		return $response = $client->request();
 	}
 	
 	/**
-	 * Update existing mail list for the customer
+	 * Update existing template for the customer
 	 * 
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
-	 * 
-	 * @param string $listUid
+	 * @param string $templateUid
 	 * @param array $data
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function update($listUid, array $data)
+	public function update($templateUid, array $data)
 	{
+		if (isset($data['content'])) {
+			$data['content'] = base64_encode($data['content']);
+		}
+		
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_PUT,
-			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s', $listUid)),
-			'paramsPut'		=> $data,
+			'url' 			=> $this->config->getApiUrl(sprintf('templates/%s', $templateUid)),
+			'paramsPut'		=> array(
+				'template' => $data
+			),
 		));
 		
 		return $response = $client->request();
 	}
 	
 	/**
-	 * Delete existing mail list for the customer
+	 * Delete existing template for the customer
 	 * 
-	 * @param string $listUid
+	 * @param string $templateUid
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function delete($listUid)
+	public function delete($templateUid)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method'	=> MailWizzApi_Http_Client::METHOD_DELETE,
-			'url'		=> $this->config->getApiUrl(sprintf('lists/%s', $listUid)),
+			'url'		=> $this->config->getApiUrl(sprintf('templates/%s', $templateUid)),
 		));
 		
 		return $response = $client->request();
