@@ -7,7 +7,7 @@
 	<title>Class MailWizzApi_Endpoint_Lists | MailWizz PHP-SDK</title>
 
 	<script type="text/javascript" src="resources/combined.js?1925257259"></script>
-	<script type="text/javascript" src="elementlist.js?1291942340"></script>
+	<script type="text/javascript" src="elementlist.js?2676922592"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -41,6 +41,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-MailWizzApi_Endpoint_Countries.html">MailWizzApi_Endpoint_Countries</a></li>
 				<li><a href="class-MailWizzApi_Endpoint_ListFields.html">MailWizzApi_Endpoint_ListFields</a></li>
 				<li class="active"><a href="class-MailWizzApi_Endpoint_Lists.html">MailWizzApi_Endpoint_Lists</a></li>
 				<li><a href="class-MailWizzApi_Endpoint_ListSubscribers.html">MailWizzApi_Endpoint_ListSubscribers</a></li>
@@ -132,7 +133,7 @@
 href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwizz.com</a>&gt;<br />
 				<b>Since:</b>
 				1.0<br />
-		<b>Located at</b> <a href="source-class-MailWizzApi_Endpoint_Lists.html#12-45" title="Go to source code">Endpoint/Lists.php</a><br />
+		<b>Located at</b> <a href="source-class-MailWizzApi_Endpoint_Lists.html#12-108" title="Go to source code">Endpoint/Lists.php</a><br />
 	</div>
 
 
@@ -172,6 +173,140 @@ href="mailto:cristian.serban&#64;mailwizz.com">cristian.serban&#64;<!---->mailwi
 					<dd><code>integer</code><br>$page</dd>
 					<dt><var>$perPage</var></dt>
 					<dd><code>integer</code><br>$perPage</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="create" id="_create">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_create">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Lists.html#46-67" title="Go to source code">create</a>( <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Create a new mail list for the customer</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Create a new mail list for the customer</p>
+
+<p>The $data param must contain following indexed arrays: -&gt; general -&gt;
+defaults -&gt; notifications -&gt; company</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="update" id="_update">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_update">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Lists.html#69-91" title="Go to source code">update</a>( <span>string <var>$listUid</var></span>, <span>array <var>$data</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Update existing mail list for the customer</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Update existing mail list for the customer</p>
+
+<p>The $data param must contain following indexed arrays: -&gt; general -&gt;
+defaults -&gt; notifications -&gt; company</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$listUid</var></dt>
+					<dd><code>string</code><br>$listUid</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code></code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="delete" id="_delete">
+
+		<td class="attributes"><code>
+			 public 
+			<code><a href="class-MailWizzApi_Http_Response.html">MailWizzApi_Http_Response</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_delete">#</a>
+		<code><a href="source-class-MailWizzApi_Endpoint_Lists.html#93-107" title="Go to source code">delete</a>( <span>string <var>$listUid</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Delete existing mail list for the customer</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Delete existing mail list for the customer</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$listUid</var></dt>
+					<dd><code>string</code><br>$listUid</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
