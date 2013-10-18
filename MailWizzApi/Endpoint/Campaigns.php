@@ -71,6 +71,10 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
 	 */
 	public function create(array $data)
 	{
+		if (isset($data['template']['content'])) {
+			$data['template']['content'] = base64_encode($data['template']['content']);
+		}
+		
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_POST,
 			'url' 			=> $this->config->getApiUrl('campaigns'),
@@ -91,6 +95,10 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
 	 */
 	public function update($campaignUid, array $data)
 	{
+		if (isset($data['template']['content'])) {
+			$data['template']['content'] = base64_encode($data['template']['content']);
+		}
+		
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_PUT,
 			'url' 			=> $this->config->getApiUrl(sprintf('campaigns/%s', $campaignUid)),
