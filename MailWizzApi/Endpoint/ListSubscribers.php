@@ -30,15 +30,14 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	 * @param array $fields 
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function getSubscribers($listUid, $page = 1, $perPage = 10, array $fields = array())
+	public function getSubscribers($listUid, $page = 1, $perPage = 10)
 	{
 		$client = new MailWizzApi_Http_Client(array(
 			'method' 		=> MailWizzApi_Http_Client::METHOD_GET,
 			'url' 			=> $this->config->getApiUrl(sprintf('lists/%s/subscribers', $listUid)),
 			'paramsGet'		=> array(
 				'page'		=> (int)$page, 
-				'per_page'	=> (int)$perPage, 
-				'fields'	=> $fields
+				'per_page'	=> (int)$perPage,
 			),
 			'enableCache'	=> true,
 		));
