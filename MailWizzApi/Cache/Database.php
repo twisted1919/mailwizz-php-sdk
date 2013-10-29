@@ -5,7 +5,6 @@
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
  * @copyright 2013 http://www.mailwizz.com/
- * @license http://www.mailwizz.com/api-client-license/
  */
  
  
@@ -121,6 +120,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
 		$sth = $con->prepare('SELECT `value` FROM `'.$this->getTableName().'` WHERE `key` = :k LIMIT 1');
 		$sth->execute(array(':k' => $key));
 		$row = $sth->fetch(PDO::FETCH_ASSOC);
+		$sth->closeCursor();
 		return $this->_loaded[$key] = !empty($row['value']) ? unserialize($row['value']) : null;	
 	}
 	
