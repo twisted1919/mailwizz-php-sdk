@@ -76,7 +76,7 @@ print_r($response->body);
 
 // CREATE / UPDATE EXISTING SUBSCRIBER
 $response = $endpoint->createUpdate('LIST-UNIQUE-ID', array(
-	'EMAIL'	=> 'john.doe@yahoo.com',
+	'EMAIL'	=> 'john.doe@doe.com',
 	'FNAME'	=> 'John',
 	'LNAME'	=> 'Doe Updated Second time'
 ));
