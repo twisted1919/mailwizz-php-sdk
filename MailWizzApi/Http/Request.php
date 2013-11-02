@@ -58,7 +58,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		$getParams = (array)$client->paramsGet->toArray();
 		if (!empty($getParams)) {
 			ksort($getParams, SORT_STRING);
-			$queryString = http_build_query($getParams);
+			$queryString = http_build_query($getParams, '', '&');
 			if (!empty($queryString)) {
 				$requestUrl .= '?'.$queryString;
 			}
@@ -137,7 +137,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 			}
 			
 			curl_setopt($ch, CURLOPT_POST, $params->count);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params->toArray()));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params->toArray(), '', '&'));
 		}
 
 		$body 			= curl_exec($ch);
@@ -241,7 +241,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 		ksort($params, SORT_STRING);
 		
 		$separator			= $client->paramsGet->count > 0 && strpos($requestUrl, '?') !== false ? '&' : '?';
-		$signatureString	= strtoupper($client->method) . ' ' . $requestUrl . $separator . http_build_query($params);
+		$signatureString	= strtoupper($client->method) . ' ' . $requestUrl . $separator . http_build_query($params, '', '&');
 		$signature			= hash_hmac('sha1', $signatureString, $privateKey, false);
 		
 		$client->headers->add('X-MW-SIGNATURE', $signature);
