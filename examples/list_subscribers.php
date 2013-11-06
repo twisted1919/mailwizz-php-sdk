@@ -47,9 +47,9 @@ echo '</pre>';
 
 // ADD SUBSCRIBER
 $response = $endpoint->create('LIST-UNIQUE-ID', array(
-	'EMAIL'	=> 'john.doe@doe.com', // the confirmation email will be sent!!! Use valid email address
-	'FNAME'	=> 'John',
-	'LNAME'	=> 'Doe'
+    'EMAIL'    => 'john.doe@doe.com', // the confirmation email will be sent!!! Use valid email address
+    'FNAME'    => 'John',
+    'LNAME'    => 'Doe'
 ));
 
 // DISPLAY RESPONSE
@@ -62,9 +62,9 @@ echo '</pre>';
 
 // UPDATE EXISTING SUBSCRIBER
 $response = $endpoint->update('LIST-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID', array(
-	'EMAIL'	=> 'john.doe@doe.com',
-	'FNAME'	=> 'John',
-	'LNAME'	=> 'Doe Updated'
+    'EMAIL'    => 'john.doe@doe.com',
+    'FNAME'    => 'John',
+    'LNAME'    => 'Doe Updated'
 ));
 
 // DISPLAY RESPONSE
@@ -76,9 +76,9 @@ print_r($response->body);
 
 // CREATE / UPDATE EXISTING SUBSCRIBER
 $response = $endpoint->createUpdate('LIST-UNIQUE-ID', array(
-	'EMAIL'	=> 'john.doe@doe.com',
-	'FNAME'	=> 'John',
-	'LNAME'	=> 'Doe Updated Second time'
+    'EMAIL'    => 'john.doe@doe.com',
+    'FNAME'    => 'John',
+    'LNAME'    => 'Doe Updated Second time'
 ));
 
 // DISPLAY RESPONSE

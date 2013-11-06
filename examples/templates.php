@@ -48,9 +48,9 @@ echo '</pre>';
 // CREATE A NEW TEMPLATE
 $rand = rand();
 $response = $endpoint->create(array(
-	'name'			=> 'My API template ' . $rand,
-	'content'		=> file_get_contents(dirname(__FILE__) . '/template-example.html'),
-	'inline_css'	=> 'no',// yes|no
+    'name'          => 'My API template ' . $rand,
+    'content'       => file_get_contents(dirname(__FILE__) . '/template-example.html'),
+    'inline_css'    => 'no',// yes|no
 ));
 
 // DISPLAY RESPONSE
@@ -62,9 +62,9 @@ echo '</pre>';
 
 // UPDATE A TEMPLATE
 $response = $endpoint->update('TEMPLATE-UNIQUE-ID', array(
-	'name'			=> 'My API template - updated' . $rand,
-	'content'		=> file_get_contents(dirname(__FILE__) . '/template-example.html'),
-	'inline_css'	=> 'no',// yes|no
+    'name'          => 'My API template - updated' . $rand,
+    'content'       => file_get_contents(dirname(__FILE__) . '/template-example.html'),
+    'inline_css'    => 'no',// yes|no
 ));
 
 // DISPLAY RESPONSE

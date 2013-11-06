@@ -30,28 +30,28 @@
  */
 class MailWizzApi_Autoloader
 {
-	/**
-	 * The registrable autoloader
-	 * 
-	 * @param string $class
-	 */
-	public static function autoloader($class)
-	{
-		if (strpos($class, 'MailWizzApi') === 0) {
-			$className = str_replace('_', '/', $class);
-			$className = substr($className, 12);
-			
-			if (is_file($classFile = dirname(__FILE__) . '/'. $className.'.php')) {
-				require_once($classFile);
-			}
-		}
-	}
-	
-	/**
-	 * Registers the MailWizzApi_Autoloader::autoloader()
-	 */
-	public static function register()
-	{
-		spl_autoload_register(array('MailWizzApi_Autoloader', 'autoloader'));
-	}
+    /**
+     * The registrable autoloader
+     * 
+     * @param string $class
+     */
+    public static function autoloader($class)
+    {
+        if (strpos($class, 'MailWizzApi') === 0) {
+            $className = str_replace('_', '/', $class);
+            $className = substr($className, 12);
+            
+            if (is_file($classFile = dirname(__FILE__) . '/'. $className.'.php')) {
+                require_once($classFile);
+            }
+        }
+    }
+    
+    /**
+     * Registers the MailWizzApi_Autoloader::autoloader()
+     */
+    public static function register()
+    {
+        spl_autoload_register(array('MailWizzApi_Autoloader', 'autoloader'));
+    }
 }

@@ -7,7 +7,7 @@
  * @copyright 2013 http://www.mailwizz.com/
  */
  
-exit('REMOVE ME TO TEST THE EXAMPLES!');
+exit('COMMENT ME TO TEST THE EXAMPLES!');
  
 // require the autoloader class
 require_once dirname(__FILE__) . '/../MailWizzApi/Autoloader.php';
@@ -36,17 +36,17 @@ MailWizzApi_Autoloader::register();
 
 // configuration object
 $config = new MailWizzApi_Config(array(
-	'apiUrl'		=> 'http://www.mailwizz-powered-website.tld/api',
-	'publicKey'		=> 'PUBLIC-KEY',
-	'privateKey'	=> 'PRIVATE-KEY',
-	
-	// components
-	'components'	=> array(
-		'cache'	=> array(
-			'class'		=> 'MailWizzApi_Cache_File',
-			'filesPath'	=> dirname(__FILE__) . '/../MailWizzApi/Cache/data/cache', // make sure it is writable by webserver
-		)
-	),
+    'apiUrl'        => 'http://www.mailwizz-powered-website.tld/api',
+    'publicKey'     => 'PUBLIC-KEY',
+    'privateKey'    => 'PRIVATE-KEY',
+    
+    // components
+    'components' => array(
+        'cache' => array(
+            'class'     => 'MailWizzApi_Cache_File',
+            'filesPath' => dirname(__FILE__) . '/../MailWizzApi/Cache/data/cache', // make sure it is writable by webserver
+        )
+    ),
 ));
 
 // now inject the configuration and we are ready to make api calls
