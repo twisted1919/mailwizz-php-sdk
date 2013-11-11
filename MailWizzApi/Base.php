@@ -30,7 +30,7 @@ class MailWizzApi_Base
     /**
      * @var MailWizzApi_Config the configuration object injected into the application at runtime  
      */
-    private static $_config = array();
+    private static $_config;
     
     /**
      * @var MailWizzApi_Params the package registry that will hold various components
