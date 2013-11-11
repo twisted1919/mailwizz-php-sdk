@@ -172,7 +172,7 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
             $fullPath=$path.DIRECTORY_SEPARATOR.$file;
             
             if(is_dir($fullPath)) {
-                $this->flush($fullPath);
+                $this->doFlush($fullPath);
             } else {
                 @unlink($fullPath);
             }
