@@ -120,7 +120,11 @@ class MailWizzApi_Json
 				return str_replace(',','.',(float)$var); // locale-independent representation
 
 			case 'string':
-				if (($enc=strtoupper(Yii::app()->charset))!=='UTF-8')
+				$charset = 'utf-8';
+                if (($config = MailWizzApi_Base::getConfig())) {
+				    $charset = $config->charset;
+				}
+                if (($enc=strtoupper($charset))!=='UTF-8')
 					$var=iconv($enc, 'UTF-8', $var);
 
 				if(function_exists('json_encode'))
