@@ -103,6 +103,54 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     }
     
     /**
+     * Unsubscribe existing subscriber from given list
+     * 
+     * @param string $listUid
+     * @param string $subscriberUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function unsubscribe($listUid, $subscriberUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'        => MailWizzApi_Http_Client::METHOD_PUT,
+            'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/%s/unsubscribe', (string)$listUid, (string)$subscriberUid)),
+            'paramsPut'     => array(),
+        ));
+        
+        return $response = $client->request();
+    }
+    
+    /**
+     * Unsubscribe existing subscriber by email address
+     * 
+     * @param string $listUid
+     * @param string emailAddress
+     * @return MailWizzApi_Http_Response
+     */
+    public function unsubscribeByEmail($listUid, $emailAddress)
+    {
+        $response = $this->emailSearch($listUid, $emailAddress);
+        
+        // the request failed.
+        if ($response->isCurlError) {
+            return $response;
+        }
+        
+        $bodyData = $response->body->itemAt('data');
+        
+        // subscriber not found.
+        if ($response->isError && $response->httpCode == 404) {
+            return $response;
+        }
+
+        if (empty($bodyData['subscriber_uid'])) {
+            return $response;
+        }
+        
+        return $this->unsubscribe($listUid, $bodyData['subscriber_uid']);
+    }
+    
+    /**
      * Delete existing subscriber in given list
      * 
      * @param string $listUid
