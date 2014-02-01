@@ -25,7 +25,7 @@
  * 
  * @author Serban George Cristian
  * @link http://www.mailwizz.com
- * @copyright 2013 http://www.mailwizz.com/
+ * @copyright 2013-2014 http://www.mailwizz.com/
  * @package MailWizzApi
  * @since 1.0
  * 
