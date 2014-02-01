@@ -24,6 +24,7 @@ $response = $endpoint->update('LIST-UNIQUE-ID', array(
     // required
     'defaults' => array(
         'from_name' => 'John Doe', // required
+        'from_email'=> 'johndoe@doe.com', // required
         'reply_to'  => 'johndoe@doe.com', // required
         'subject'   => 'Hello!',
     ),

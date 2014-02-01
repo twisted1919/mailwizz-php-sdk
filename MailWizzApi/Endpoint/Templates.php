@@ -74,6 +74,10 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
             $data['content'] = base64_encode($data['content']);
         }
         
+        if (isset($data['archive'])) {
+            $data['archive'] = base64_encode($data['archive']);
+        }
+        
         $client = new MailWizzApi_Http_Client(array(
             'method'        => MailWizzApi_Http_Client::METHOD_POST,
             'url'           => $this->config->getApiUrl('templates'),
@@ -96,6 +100,10 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
     {
         if (isset($data['content'])) {
             $data['content'] = base64_encode($data['content']);
+        }
+        
+        if (isset($data['archive'])) {
+            $data['archive'] = base64_encode($data['archive']);
         }
         
         $client = new MailWizzApi_Http_Client(array(
