@@ -57,7 +57,7 @@ class MailWizzApi_Base
      * 
      * @return MailWizzApi_Config
      */
-    public function getConfig()
+    public static function getConfig()
     {
         return self::$_config;
     }

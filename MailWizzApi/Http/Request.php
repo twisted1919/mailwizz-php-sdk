@@ -109,10 +109,12 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         }
         
         if (!ini_get('safe_mode')) {
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_MAXREDIRS, 5);    
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 5); 
+            if (!ini_get('open_basedir')) {
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            }   
         }
-
+        
         if ($client->headers->count > 0) {
             $headers = array();
             foreach($client->headers as $name => $value) {
