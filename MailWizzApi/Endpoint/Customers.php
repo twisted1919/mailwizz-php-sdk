@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the lists endpoint for MailWizzApi PHP-SDK.
+ * This file contains the customers endpoint for MailWizzApi PHP-SDK.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
