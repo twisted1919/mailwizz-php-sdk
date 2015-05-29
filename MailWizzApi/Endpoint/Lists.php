@@ -110,6 +110,22 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
     }
     
     /**
+     * Copy existing mail list for the customer
+     * 
+     * @param string $listUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function copy($listUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'    => MailWizzApi_Http_Client::METHOD_POST,
+            'url'       => $this->config->getApiUrl(sprintf('lists/%s/copy', $listUid)),
+        ));
+        
+        return $response = $client->request();
+    }
+    
+    /**
      * Delete existing mail list for the customer
      * 
      * @param string $listUid

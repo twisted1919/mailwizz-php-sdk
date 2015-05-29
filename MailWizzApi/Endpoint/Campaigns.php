@@ -118,6 +118,22 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
     }
     
     /**
+     * Copy existing campaign for the customer
+     * 
+     * @param string $campaignUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function copy($campaignUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'    => MailWizzApi_Http_Client::METHOD_POST,
+            'url'       => $this->config->getApiUrl(sprintf('campaigns/%s/copy', $campaignUid)),
+        ));
+        
+        return $response = $client->request();
+    }
+    
+    /**
      * Delete existing campaign for the customer
      * 
      * @param string $campaignUid

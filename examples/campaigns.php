@@ -38,6 +38,7 @@ echo '</pre>';
 // CREATE CAMPAIGN
 $response = $endpoint->create(array(
     'name'          => 'My API Campaign', // required
+    'type'          => 'regular', // optional: regular or autoresponder
     'from_name'     => 'John Doe', // required
     'from_email'    => 'john.doe@doe.com', // required
     'subject'       => 'Hey, i am testing the campaigns via API', // required
@@ -53,6 +54,17 @@ $response = $endpoint->create(array(
         'xml_feed'          => 'no', // yes | no  
         'plain_text_email'  => 'yes',// yes | no 
         'email_stats'       => null, // a valid email address where we should send the stats after campaign done
+        
+        // - if autoresponder uncomment bellow:
+        //'autoresponder_event'            => 'AFTER-SUBSCRIBE', // AFTER-SUBSCRIBE or AFTER-CAMPAIGN-OPEN
+        //'autoresponder_time_unit'        => 'hour', // minute, hour, day, week, month, year
+        //'autoresponder_time_value'       => 1, // 1 hour after event
+        //'autoresponder_open_campaign_id' => 1, // INT id of campaign, only if event is AFTER-CAMPAIGN-OPEN,
+        
+        // - if this campaign is advanced recurring, you can set a cron job style frequency.
+        // - please note that this applies only for regular campaigns.
+        //'cronjob'         => '0 0 * * *', // once a day
+        //'cronjob_enabled' => 1, // 1 or 0
     ),
     
     // required block, archive or template_uid or content => required.
@@ -103,6 +115,16 @@ $response = $endpoint->update('CAMPAIGN-UNIQUE-ID', array(
         'auto_plain_text'   => 'yes', // yes | no
     ),
 ));
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
+// Copy CAMPAIGN
+$response = $endpoint->copy('CAMPAIGN-UNIQUE-ID');
 
 // DISPLAY RESPONSE
 echo '<hr /><pre>';

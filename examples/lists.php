@@ -33,6 +33,15 @@ echo '<hr /><pre>';
 print_r($response->body);
 echo '</pre>';
 
+/*===================================================================================*/
+
+// copy a list
+$response = $endpoint->copy('LIST-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
 
 /*===================================================================================*/
 
