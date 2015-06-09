@@ -134,6 +134,38 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
     }
     
     /**
+     * Pause/Unpause existing campaign
+     * 
+     * @param string $campaignUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function pauseUnpause($campaignUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'    => MailWizzApi_Http_Client::METHOD_PUT,
+            'url'       => $this->config->getApiUrl(sprintf('campaigns/%s/pause-unpause', $campaignUid)),
+        ));
+        
+        return $response = $client->request();
+    }
+    
+    /**
+     * Mark existing campaign as sent
+     * 
+     * @param string $campaignUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function markSent($campaignUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'    => MailWizzApi_Http_Client::METHOD_PUT,
+            'url'       => $this->config->getApiUrl(sprintf('campaigns/%s/mark-sent', $campaignUid)),
+        ));
+        
+        return $response = $client->request();
+    }
+    
+    /**
      * Delete existing campaign for the customer
      * 
      * @param string $campaignUid

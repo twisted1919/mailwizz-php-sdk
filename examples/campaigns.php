@@ -133,6 +133,26 @@ echo '</pre>';
 
 /*===================================================================================*/
 
+// Pause/Unpause CAMPAIGN
+$response = $endpoint->pauseUnpause('CAMPAIGN-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
+// Mark CAMPAIGN as sent
+$response = $endpoint->markSent('CAMPAIGN-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
 // Delete CAMPAIGN
 $response = $endpoint->delete('CAMPAIGN-UNIQUE-ID');
 
