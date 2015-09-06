@@ -110,6 +110,10 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
             $data['template']['archive'] = base64_encode($data['template']['archive']);
         }
         
+        if (isset($data['template']['plain_text'])) {
+            $data['template']['plain_text'] = base64_encode($data['template']['plain_text']);
+        }
+        
         $client = new MailWizzApi_Http_Client(array(
             'method'        => MailWizzApi_Http_Client::METHOD_PUT,
             'url'           => $this->config->getApiUrl(sprintf('campaigns/%s', $campaignUid)),
