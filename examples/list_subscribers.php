@@ -6,7 +6,7 @@
  * @link http://www.mailwizz.com/
  * @copyright 2013-2015 http://www.mailwizz.com/
  */
- 
+
 // require the setup which has registered the autoloader
 require_once dirname(__FILE__) . '/setup.php';
 
@@ -37,6 +37,16 @@ echo '</pre>';
 
 // SEARCH BY EMAIL
 $response = $endpoint->emailSearch('LIST-UNIQUE-ID', 'john.doe@doe.com');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
+// SEARCH BY EMAIL IN ALL LISTS
+$response = $endpoint->emailSearchAllLists('john.doe@doe.com');
 
 // DISPLAY RESPONSE
 echo '<hr /><pre>';
