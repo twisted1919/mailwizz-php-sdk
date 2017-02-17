@@ -227,7 +227,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         $specialHeaderParams = array(
             'X-MW-PUBLIC-KEY'   => $publicKey,
             'X-MW-TIMESTAMP'    => $timestamp,
-            'X-MW-REMOTE-ADDR'  => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,
+            'X-MW-REMOTE-ADDR'  => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '',
         );
 
         foreach ($specialHeaderParams as $key => $value) {
