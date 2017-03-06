@@ -6,7 +6,7 @@
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link http://www.mailwizz.com/
- * @copyright 2013-2015 http://www.mailwizz.com/
+ * @copyright 2013-2017 http://www.mailwizz.com/
  */
  
  

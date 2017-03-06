@@ -1,0 +1,20 @@
+{
+  "name": "twisted1919/mailwizz-php-sdk",
+  "type": "library",
+  "description": "Mailwizz PHP-SDK",
+  "keywords": ["mailwizz"],
+  "homepage": "https://www.mailwizz.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "twisted1919",
+      "email": "support@mailwizz.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2"
+  },
+  "autoload": {
+    "files": ["MailWizzApi/autoload.php"]
+  }
+}
