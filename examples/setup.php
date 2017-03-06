@@ -9,10 +9,10 @@
  
 exit('COMMENT ME TO TEST THE EXAMPLES!');
  
-// require the autoloader class
+// require the autoloader class if you haven't used composer to install the package
 require_once dirname(__FILE__) . '/../MailWizzApi/Autoloader.php';
 
-// register the autoloader.
+// register the autoloader if you haven't used composer to install the package
 MailWizzApi_Autoloader::register();
 
 // if using a framework that already uses an autoloading mechanism, like Yii for example, 
