@@ -162,7 +162,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
             'method'        => MailWizzApi_Http_Client::METHOD_PUT,
             'url'           => $this->config->getApiUrl('lists/subscribers/unsubscribe-by-email-from-all-lists'),
             'paramsPut'     => array(
-                'email' => $emailAddress,
+                'EMAIL' => $emailAddress,
             ),
         ));
 
