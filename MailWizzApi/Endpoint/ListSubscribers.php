@@ -151,6 +151,26 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     }
 
     /**
+     * Unsubscribe existing subscriber by email address from all lists
+     *
+     * @param string emailAddress
+     * @return MailWizzApi_Http_Response
+     */
+    public function unsubscribeByEmailFromAllLists($emailAddress)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'        => MailWizzApi_Http_Client::METHOD_PUT,
+            'url'           => $this->config->getApiUrl('lists/subscribers/unsubscribe-by-email-from-all-lists'),
+            'paramsPut'     => array(
+                'email' => $emailAddress,
+            ),
+        ));
+
+        return $response = $client->request();
+    }
+
+
+    /**
      * Delete existing subscriber in given list
      *
      * @param string $listUid
