@@ -44,7 +44,7 @@ class MailWizzApi_Endpoint_CampaignBounces extends MailWizzApi_Base
     }
 
     /**
-     * Create a new bounce in the given list
+     * Create a new bounce in the given campaign
      *
      * @param string $campaignUid
      * @param array $data
