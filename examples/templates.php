@@ -25,6 +25,18 @@ echo '</pre>';
 
 /*===================================================================================*/
 
+// Search ALL ITEMS (available from MailWizz 1.4.4)
+$response = $endpoint->searchTemplates($pageNumber = 1, $perPage = 10, array(
+    'name' => 'my template name'
+));
+
+// DISPLAY RESPONSE
+echo '<pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
 // GET ONE ITEM
 $response = $endpoint->getTemplate('TEMPLATE-UNIQUE-ID');
 

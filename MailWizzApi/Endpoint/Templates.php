@@ -41,6 +41,33 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         
         return $response = $client->request();
     }
+
+    /**
+     * Search through all the email templates of the current customer
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @since MailWizz 1.4.4
+     * @param integer $page
+     * @param integer $perPage
+     * @param array $filter
+     * @return MailWizzApi_Http_Response
+     */
+    public function searchTemplates($page = 1, $perPage = 10, array $filter = array())
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+            'url'           => $this->config->getApiUrl('templates'),
+            'paramsGet'     => array(
+                'page'      => (int)$page,
+                'per_page'  => (int)$perPage,
+                'filter'    => $filter,
+            ),
+            'enableCache'   => true,
+        ));
+
+        return $response = $client->request();
+    }
     
     /**
      * Get one template
