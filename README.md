@@ -11,6 +11,6 @@ Implementations using MailWizz PHP SDK:
 
 ### Install
 You can either download latest version of the code or you can install it via composer as follows:  
-`composer require twisted1919/mailwizz-php-sdk "dev-master"`  
+`composer require twisted1919/mailwizz-php-sdk`  
 Then follow the instructions from `examples/setup.php` file.
 
