@@ -33,3 +33,13 @@ $response = $endpoint->trackOpening('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID'
 echo '<hr /><pre>';
 print_r($response->body);
 echo '</pre>';
+
+/*===================================================================================*/
+
+// Track subscriber unsubscribe for campaign
+$response = $endpoint->trackUnsubscribe('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';

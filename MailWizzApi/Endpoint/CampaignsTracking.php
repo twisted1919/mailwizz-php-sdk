@@ -54,4 +54,22 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
 
         return $response = $client->request();
     }
+
+    /**
+     * Track campaign unsubscribe for certain subscriber
+     *
+     * @param string $campaignUid
+     * @param string $subscriberUid
+     * @return MailWizzApi_Http_Response
+     */
+    public function trackUnsubscribe($campaignUid, $subscriberUid)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/track-unsubscribe/%s', (string)$campaignUid, (string)$subscriberUid)),
+            'paramsGet'     => array(),
+        ));
+
+        return $response = $client->request();
+    }
 }
