@@ -29,9 +29,9 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
     public function trackUrl($campaignUid, $subscriberUid, $hash)
     {
         $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
-            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/track-url/%s/%s', (string)$campaignUid, (string)$subscriberUid, (string)$hash)),
-            'paramsGet'     => array(),
+            'method'    => MailWizzApi_Http_Client::METHOD_GET,
+            'url'       => $this->config->getApiUrl(sprintf('campaigns/%s/track-url/%s/%s', (string)$campaignUid, (string)$subscriberUid, (string)$hash)),
+            'paramsGet' => array(),
         ));
         
         return $response = $client->request();
@@ -47,9 +47,9 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
     public function trackOpening($campaignUid, $subscriberUid)
     {
         $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
-            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/track-opening/%s', (string)$campaignUid, (string)$subscriberUid)),
-            'paramsGet'     => array(),
+            'method'    => MailWizzApi_Http_Client::METHOD_GET,
+            'url'       => $this->config->getApiUrl(sprintf('campaigns/%s/track-opening/%s', (string)$campaignUid, (string)$subscriberUid)),
+            'paramsGet' => array(),
         ));
 
         return $response = $client->request();
@@ -60,14 +60,15 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
      *
      * @param string $campaignUid
      * @param string $subscriberUid
+     * @param array $data
      * @return MailWizzApi_Http_Response
      */
-    public function trackUnsubscribe($campaignUid, $subscriberUid)
+    public function trackUnsubscribe($campaignUid, $subscriberUid, array $data = array())
     {
         $client = new MailWizzApi_Http_Client(array(
-            'method'        => MailWizzApi_Http_Client::METHOD_GET,
-            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/track-unsubscribe/%s', (string)$campaignUid, (string)$subscriberUid)),
-            'paramsGet'     => array(),
+            'method'     => MailWizzApi_Http_Client::METHOD_POST,
+            'url'        => $this->config->getApiUrl(sprintf('campaigns/%s/track-unsubscribe/%s', (string)$campaignUid, (string)$subscriberUid)),
+            'paramsPost' => $data,
         ));
 
         return $response = $client->request();

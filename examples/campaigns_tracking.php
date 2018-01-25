@@ -37,7 +37,11 @@ echo '</pre>';
 /*===================================================================================*/
 
 // Track subscriber unsubscribe for campaign
-$response = $endpoint->trackUnsubscribe('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID');
+$response = $endpoint->trackUnsubscribe('CAMPAIGN-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID', array(
+    'ip_address' => '123.123.123.123',
+    'user_agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+    'reason'     => 'Reason for unsubscribe!',
+));
 
 // DISPLAY RESPONSE
 echo '<hr /><pre>';
