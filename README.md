@@ -7,7 +7,10 @@ You'll find proper example on how to manage lists, subscribers, campaigns, templ
 Please see the examples folder for usage and available endpoints.
 
 Implementations using MailWizz PHP SDK:
-- https://github.com/thangtx/mailwizzphpapi-wrap - A small rest app that acts as a proxy between mailwizz and any other software.
+- https://github.com/thangtx/mailwizzphpapi-wrap - A small rest app that acts as a proxy between mailwizz and any other software.  
+
+Looking for Node.js implementations instead?  
+- https://www.npmjs.com/package/node-mailwizz  
 
 ### Install
 You can either download latest version of the code or you can install it via composer as follows:  
