@@ -243,6 +243,25 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
         return $response = $client->request();
     }
 
+	/**
+	 * Search in a list by custom fields
+	 * 
+	 * @param $listUid
+	 * @param array $fields
+	 *
+	 * @return MailWizzApi_Http_Response
+	 */
+	public function searchByCustomFields($listUid, array $fields = array())
+	{
+		$client = new MailWizzApi_Http_Client(array(
+			'method'        => MailWizzApi_Http_Client::METHOD_GET,
+			'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/search-by-custom-fields', (string)$listUid)),
+			'paramsGet'     => $fields,
+		));
+
+		return $response = $client->request();
+	}
+
     /**
      * Create or update a subscriber in given list
      *
