@@ -26,7 +26,6 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
      * @param string $listUid
      * @param integer $page
      * @param integer $perPage
-     * @param array $fields
      * @return MailWizzApi_Http_Response
      */
     public function getSubscribers($listUid, $page = 1, $perPage = 10)
@@ -248,15 +247,21 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
 	 * 
 	 * @param $listUid
 	 * @param array $fields
+	 * @param int $page
+	 * @param int $perPage
 	 *
 	 * @return MailWizzApi_Http_Response
 	 */
-	public function searchByCustomFields($listUid, array $fields = array())
+	public function searchByCustomFields($listUid, array $fields = array(), $page = 1, $perPage = 10)
 	{
+		$paramsGet = $fields;
+		$paramsGet['page']      = (int)$page;
+		$paramsGet['per_page']  = (int)$perPage;
+		
 		$client = new MailWizzApi_Http_Client(array(
 			'method'        => MailWizzApi_Http_Client::METHOD_GET,
 			'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/search-by-custom-fields', (string)$listUid)),
-			'paramsGet'     => $fields,
+			'paramsGet'     => $paramsGet,
 		));
 
 		return $response = $client->request();
