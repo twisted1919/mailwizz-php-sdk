@@ -82,6 +82,25 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
         return $response = $client->request();
     }
 
+	/**
+	 * Create subscribers in bulk in the given list
+	 * This feature is available since MailWizz 1.8.1 
+	 * 
+	 * @param string $listUid
+	 * @param array $data
+	 * @return MailWizzApi_Http_Response
+	 */
+	public function createBulk($listUid, array $data)
+	{
+		$client = new MailWizzApi_Http_Client(array(
+			'method'        => MailWizzApi_Http_Client::METHOD_POST,
+			'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers/bulk', (string)$listUid)),
+			'paramsPost'    => array('subscribers' => $data),
+		));
+
+		return $response = $client->request();
+	}
+
     /**
      * Update existing subscriber in given list
      *
