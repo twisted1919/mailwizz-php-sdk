@@ -55,6 +55,18 @@ echo '</pre>';
 
 /*===================================================================================*/
 
+// SEARCH BY CUSTOM FIELDS IN A LIST
+$response = $endpoint->searchByCustomFields('LIST-UNIQUE-ID', array(
+    'EMAIL' => 'john.doe@doe.com'
+));
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
 // ADD SUBSCRIBER
 $response = $endpoint->create('LIST-UNIQUE-ID', array(
     'EMAIL'    => 'john.doe@doe.com', // the confirmation email will be sent!!! Use valid email address
