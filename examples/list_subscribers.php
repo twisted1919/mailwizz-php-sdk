@@ -119,6 +119,22 @@ $response = $endpoint->update('LIST-UNIQUE-ID', 'SUBSCRIBER-UNIQUE-ID', array(
 echo '<hr />';
 echo '<pre>';
 print_r($response->body);
+echo '</pre>';
+
+/*===================================================================================*/
+
+// UPDATE EXISTING SUBSCRIBER BY EMAIL
+$response = $endpoint->updateByEmail('LIST-UNIQUE-ID', 'john@doe.com', array(
+    'EMAIL'    => 'john.doe@doe.com',
+    'FNAME'    => 'John',
+    'LNAME'    => 'Doe Updated'
+));
+
+// DISPLAY RESPONSE
+echo '<hr />';
+echo '<pre>';
+print_r($response->body);
+echo '</pre>';
 
 /*===================================================================================*/
 
@@ -153,6 +169,17 @@ $response = $endpoint->unsubscribeByEmail('LIST-UNIQUE-ID', 'john@doe.com');
 echo '<hr /><pre>';
 print_r($response->body);
 echo '</pre>';
+/*===================================================================================*/
+
+
+// UNSUBSCRIBE existing subscriber from all lists, no email is sent, unsubscribe is silent
+$response = $endpoint->unsubscribeByEmailFromAllLists('john@doe.com');
+
+// DISPLAY RESPONSE
+echo '<hr /><pre>';
+print_r($response->body);
+echo '</pre>';
+
 /*===================================================================================*/
 
 // DELETE SUBSCRIBER, no email is sent, delete is silent
