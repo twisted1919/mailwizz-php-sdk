@@ -75,7 +75,7 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     {
         $client = new MailWizzApi_Http_Client(array(
             'method'        => MailWizzApi_Http_Client::METHOD_POST,
-            'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribers', (string)$listUid)),
+            'url'           => $this->config->getApiUrl(sprintf('lists/%s/subscribe', (string)$listUid)),
             'paramsPost'    => $data,
         ));
 
