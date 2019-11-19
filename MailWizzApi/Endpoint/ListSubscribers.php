@@ -121,6 +121,37 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     }
 
     /**
+     * Update existing subscriber by email address
+     *
+     * @param string $listUid
+     * @param string emailAddress
+     * @param array $data
+     * @return MailWizzApi_Http_Response
+     */
+    public function updateByEmail($listUid, $emailAddress, array $data)
+    {
+        $response = $this->emailSearch($listUid, $emailAddress);
+
+        // the request failed.
+        if ($response->isCurlError) {
+            return $response;
+        }
+
+        $bodyData = $response->body->itemAt('data');
+
+        // subscriber not found.
+        if ($response->isError && $response->httpCode == 404) {
+            return $response;
+        }
+
+        if (empty($bodyData['subscriber_uid'])) {
+            return $response;
+        }
+
+        return $this->update($listUid, $bodyData['subscriber_uid'], $data);
+    }
+
+    /**
      * Unsubscribe existing subscriber from given list
      *
      * @param string $listUid
