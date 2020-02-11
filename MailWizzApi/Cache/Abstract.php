@@ -5,8 +5,8 @@
  * Each class extending this one needs to implement the abstract methods.
  * 
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
- * @link http://www.mailwizz.com/
- * @copyright 2013-2017 http://www.mailwizz.com/
+ * @link https://www.mailwizz.com/
+ * @copyright 2013-2020 https://www.mailwizz.com/
  */
  
  

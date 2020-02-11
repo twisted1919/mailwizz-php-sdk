@@ -3,8 +3,8 @@
  * This file contains examples for using the MailWizzApi PHP-SDK.
  *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
- * @link http://www.mailwizz.com/
- * @copyright 2013-2017 http://www.mailwizz.com/
+ * @link https://www.mailwizz.com/
+ * @copyright 2013-2020 https://www.mailwizz.com/
  */
  
 // require the setup which has registered the autoloader

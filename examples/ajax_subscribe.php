@@ -3,8 +3,8 @@
  * This file contains examples for using the MailWizzApi PHP-SDK.
  *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
- * @link http://www.mailwizz.com/
- * @copyright 2013-2017 http://www.mailwizz.com/
+ * @link https://www.mailwizz.com/
+ * @copyright 2013-2020 https://www.mailwizz.com/
  */
  
 // require the setup which has registered the autoloader
@@ -46,12 +46,12 @@ if ($isAjaxRequest && !empty($_POST)) {
 	<meta http-equiv="content-type" content="text/html" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Sans:700italic" />
-    <link rel="stylesheet" type="text/css" href="http://www.mailwizz.com/backend/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="http://www.mailwizz.com/backend/assets/css/bootstrap-glyphicons.css" />
-    <link rel="stylesheet" type="text/css" href="http://www.mailwizz.com/backend/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.mailwizz.com/backend/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.mailwizz.com/backend/assets/css/bootstrap-glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.mailwizz.com/backend/assets/css/style.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://www.mailwizz.com/backend/assets/js/bootstrap.js" id="script-bootstrap"></script>
-    <link rel="shortcut icon" href="http://www.mailwizz.com/favicon.ico" type="image/x-icon" /> 
+    <script type="text/javascript" src="https://www.mailwizz.com/backend/assets/js/bootstrap.js" id="script-bootstrap"></script>
+    <link rel="shortcut icon" href="https://www.mailwizz.com/favicon.ico" type="image/x-icon" /> 
 	<title>Ajax subscribe</title>
     <style>
     #content {
