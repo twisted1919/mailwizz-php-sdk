@@ -27,14 +27,14 @@ if ($isAjaxRequest && !empty($_POST)) {
     
     // if the returned status is success, we are done.
     if ($response->itemAt('status') == 'success') {
-        exit(MailWizzApi_Json::encode(array(
+        exit(json_encode(array(
             'status'    => 'success',
             'message'   => 'Thank you for joining our email list. Please confirm your email address now!'
         )));
     }
     
     // otherwise, the status is error
-    exit(MailWizzApi_Json::encode(array(
+    exit(json_encode(array(
         'status'    => 'error',
         'message'   => $response->itemAt('error')
     )));

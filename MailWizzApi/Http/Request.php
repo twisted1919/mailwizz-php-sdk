@@ -164,7 +164,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 
         $decodedBody = array();
         if ($curlCode === 0 && !empty($body)) {
-            $decodedBody = MailWizzApi_Json::decode($body, true);
+	        $decodedBody = json_decode($decodedBody, true);
             if (!is_array($decodedBody)) {
                 $decodedBody = array();
             }
