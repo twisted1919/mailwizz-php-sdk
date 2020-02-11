@@ -18,17 +18,17 @@
  */
 class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
 {
-	/**
-	 * Get all the mail list of the current customer
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get all the mail list of the current customer
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getLists($page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -44,16 +44,16 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Get one list
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param string $listUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get one list
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param string $listUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getList($listUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -66,20 +66,20 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Create a new mail list for the customer
-	 *
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
-	 *
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Create a new mail list for the customer
+     *
+     * The $data param must contain following indexed arrays:
+     * -> general
+     * -> defaults
+     * -> notifications
+     * -> company
+     *
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function create(array $data)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -91,21 +91,21 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Update existing mail list for the customer
-	 *
-	 * The $data param must contain following indexed arrays:
-	 * -> general
-	 * -> defaults
-	 * -> notifications
-	 * -> company
-	 *
-	 * @param string $listUid
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Update existing mail list for the customer
+     *
+     * The $data param must contain following indexed arrays:
+     * -> general
+     * -> defaults
+     * -> notifications
+     * -> company
+     *
+     * @param string $listUid
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function update($listUid, array $data)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -117,14 +117,14 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Copy existing mail list for the customer
-	 *
-	 * @param string $listUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Copy existing mail list for the customer
+     *
+     * @param string $listUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function copy($listUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -135,14 +135,14 @@ class MailWizzApi_Endpoint_Lists extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Delete existing mail list for the customer
-	 *
-	 * @param string $listUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Delete existing mail list for the customer
+     *
+     * @param string $listUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function delete($listUid)
     {
         $client = new MailWizzApi_Http_Client(array(

@@ -138,11 +138,13 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
      * @var int the returned http code.
      */
     private $_httpCode;
-    
+
     /**
      * Contructor.
      *
      * @param MailWizzApi_Http_Request $request
+     *
+     * @throws ReflectionException
      */
     public function __construct(MailWizzApi_Http_Request $request)
     {
@@ -248,12 +250,14 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
         
         return false;
     }
-    
+
     /**
      * Calls all the setters and populate the class based on the given array.
      *
      * @param array $params
+     *
      * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
      */
     public function populate(array $params = array())
     {

@@ -98,14 +98,14 @@ class MailWizzApi_Http_Client extends MailWizzApi_Base
      */
     public $method = self::METHOD_GET;
 
-	/**
-	 * Constructor.
-	 *
-	 * @param array $options
-	 *
-	 * @throws ReflectionException
-	 * @throws Exception
-	 */
+    /**
+     * Constructor.
+     *
+     * @param array $options
+     *
+     * @throws ReflectionException
+     * @throws Exception
+     */
     public function __construct(array $options = array())
     {
         $this->populateFromArray($options);
@@ -157,12 +157,12 @@ class MailWizzApi_Http_Client extends MailWizzApi_Base
         return strtoupper($this->method) === self::METHOD_DELETE;
     }
 
-	/**
-	 * Makes the request to the remote host.
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws Exception
-	 */
+    /**
+     * Makes the request to the remote host.
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws Exception
+     */
     public function request()
     {
         $request = new MailWizzApi_Http_Request($this);

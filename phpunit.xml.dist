@@ -1,0 +1,23 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
+        bootstrap="./vendor/autoload.php"
+        convertErrorsToExceptions='true'
+        convertNoticesToExceptions='true'
+        convertWarningsToExceptions='true'
+        stopOnError="true"
+        timeoutForLargeTests="60"
+        timeoutForMediumTests="10"
+        timeoutForSmallTests="1"
+        verbose="false" >
+    <php>
+        <env name="MAILWIZZ_API_URL" value=""/>
+        <env name="MAILWIZZ_API_PUBLIC_KEY" value=""/>
+        <env name="MAILWIZZ_API_PRIVATE_KEY" value=""/>
+    </php>
+    <testsuites>
+        <testsuite name="Unit tests">
+            <directory>./MailWizzApi/Test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -296,18 +296,18 @@ class MailWizzApi_Base
         return $this;
     }
 
-	/**
-	 * Magic setter
-	 *
-	 * This method should never be called directly from outside of the class.
-	 *
-	 * @param string $name
-	 * @param mixed $value
-	 *
-	 * @return void
-	 * @throws ReflectionException
-	 * @throws Exception
-	 */
+    /**
+     * Magic setter
+     *
+     * This method should never be called directly from outside of the class.
+     *
+     * @param string $name
+     * @param mixed $value
+     *
+     * @return void
+     * @throws ReflectionException
+     * @throws Exception
+     */
     public function __set($name, $value)
     {
         $methodName = 'set'.ucfirst($name);
@@ -321,17 +321,17 @@ class MailWizzApi_Base
         }
     }
 
-	/**
-	 * Magic getter
-	 *
-	 * This method should never be called directly from outside of the class.
-	 *
-	 * @param string $name
-	 *
-	 * @return mixed
-	 * @throws ReflectionException
-	 * @throws Exception
-	 */
+    /**
+     * Magic getter
+     *
+     * This method should never be called directly from outside of the class.
+     *
+     * @param string $name
+     *
+     * @return mixed
+     * @throws ReflectionException
+     * @throws Exception
+     */
     public function __get($name)
     {
         $methodName = 'get'.ucfirst($name);

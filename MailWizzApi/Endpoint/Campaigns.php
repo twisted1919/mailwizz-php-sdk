@@ -18,17 +18,17 @@
  */
 class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
 {
-	/**
-	 * Get all the campaigns of the current customer
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get all the campaigns of the current customer
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getCampaigns($page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -44,16 +44,16 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Get one campaign
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param string $campaignUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get one campaign
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param string $campaignUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getCampaign($campaignUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -66,14 +66,14 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Create a new campaign
-	 *
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Create a new campaign
+     *
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function create(array $data)
     {
         if (isset($data['template']['content'])) {
@@ -99,15 +99,15 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Update existing campaign for the customer
-	 *
-	 * @param string $campaignUid
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Update existing campaign for the customer
+     *
+     * @param string $campaignUid
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function update($campaignUid, array $data)
     {
         if (isset($data['template']['content'])) {
@@ -133,14 +133,14 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Copy existing campaign for the customer
-	 *
-	 * @param string $campaignUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Copy existing campaign for the customer
+     *
+     * @param string $campaignUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function copy($campaignUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -151,14 +151,14 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Pause/Unpause existing campaign
-	 *
-	 * @param string $campaignUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Pause/Unpause existing campaign
+     *
+     * @param string $campaignUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function pauseUnpause($campaignUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -169,14 +169,14 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Mark existing campaign as sent
-	 *
-	 * @param string $campaignUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Mark existing campaign as sent
+     *
+     * @param string $campaignUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function markSent($campaignUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -187,14 +187,14 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Delete existing campaign for the customer
-	 *
-	 * @param string $campaignUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Delete existing campaign for the customer
+     *
+     * @param string $campaignUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function delete($campaignUid)
     {
         $client = new MailWizzApi_Http_Client(array(

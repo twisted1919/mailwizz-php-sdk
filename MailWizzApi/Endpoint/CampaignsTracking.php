@@ -18,16 +18,16 @@
  */
 class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
 {
-	/**
-	 * Track campaign url click for certain subscriber
-	 *
-	 * @param string $campaignUid
-	 * @param string $subscriberUid
-	 * @param string $hash
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Track campaign url click for certain subscriber
+     *
+     * @param string $campaignUid
+     * @param string $subscriberUid
+     * @param string $hash
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function trackUrl($campaignUid, $subscriberUid, $hash)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -39,15 +39,15 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Track campaign open for certain subscriber
-	 *
-	 * @param string $campaignUid
-	 * @param string $subscriberUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Track campaign open for certain subscriber
+     *
+     * @param string $campaignUid
+     * @param string $subscriberUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function trackOpening($campaignUid, $subscriberUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -59,16 +59,16 @@ class MailWizzApi_Endpoint_CampaignsTracking extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Track campaign unsubscribe for certain subscriber
-	 *
-	 * @param string $campaignUid
-	 * @param string $subscriberUid
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Track campaign unsubscribe for certain subscriber
+     *
+     * @param string $campaignUid
+     * @param string $subscriberUid
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function trackUnsubscribe($campaignUid, $subscriberUid, array $data = array())
     {
         $client = new MailWizzApi_Http_Client(array(

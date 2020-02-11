@@ -4,3 +4,4 @@ parameters:
     excludes_analyse:
         - examples/*
         - vendor/*
+        - MailWizzApi/Test/*

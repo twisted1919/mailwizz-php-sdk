@@ -18,16 +18,16 @@
  */
 class MailWizzApi_Endpoint_ListFields extends MailWizzApi_Base
 {
-	/**
-	 * Get fields from a certain mail list
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param string $listUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get fields from a certain mail list
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param string $listUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getFields($listUid)
     {
         $client = new MailWizzApi_Http_Client(array(

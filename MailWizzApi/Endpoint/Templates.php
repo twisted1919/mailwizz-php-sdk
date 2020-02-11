@@ -18,17 +18,17 @@
  */
 class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
 {
-	/**
-	 * Get all the email templates of the current customer
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get all the email templates of the current customer
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getTemplates($page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -44,19 +44,19 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Search through all the email templates of the current customer
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $page
-	 * @param integer $perPage
-	 * @param array $filter
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 * @since MailWizz 1.4.4
-	 */
+    /**
+     * Search through all the email templates of the current customer
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $page
+     * @param integer $perPage
+     * @param array $filter
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     * @since MailWizz 1.4.4
+     */
     public function searchTemplates($page = 1, $perPage = 10, array $filter = array())
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -73,16 +73,16 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Get one template
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param string $templateUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get one template
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param string $templateUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getTemplate($templateUid)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -95,14 +95,14 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Create a new template
-	 *
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Create a new template
+     *
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function create(array $data)
     {
         if (isset($data['content'])) {
@@ -124,15 +124,15 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Update existing template for the customer
-	 *
-	 * @param string $templateUid
-	 * @param array $data
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Update existing template for the customer
+     *
+     * @param string $templateUid
+     * @param array $data
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function update($templateUid, array $data)
     {
         if (isset($data['content'])) {
@@ -154,14 +154,14 @@ class MailWizzApi_Endpoint_Templates extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Delete existing template for the customer
-	 *
-	 * @param string $templateUid
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Delete existing template for the customer
+     *
+     * @param string $templateUid
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function delete($templateUid)
     {
         $client = new MailWizzApi_Http_Client(array(

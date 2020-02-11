@@ -18,17 +18,17 @@
  */
 class MailWizzApi_Endpoint_Countries extends MailWizzApi_Base
 {
-	/**
-	 * Get all available countries
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get all available countries
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getCountries($page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
@@ -44,18 +44,18 @@ class MailWizzApi_Endpoint_Countries extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-	/**
-	 * Get all available country zones
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param integer $countryId
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get all available country zones
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param integer $countryId
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getZones($countryId, $page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(

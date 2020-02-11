@@ -18,3 +18,8 @@ You can either download latest version of the code or you can install it via com
 `composer require twisted1919/mailwizz-php-sdk`  
 Then follow the instructions from `examples/setup.php` file.
 
+## Test  
+```bash
+$ composer test
+``` 
+

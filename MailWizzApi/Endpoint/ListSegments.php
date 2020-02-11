@@ -18,18 +18,18 @@
  */
 class MailWizzApi_Endpoint_ListSegments extends MailWizzApi_Base
 {
-	/**
-	 * Get segments from a certain mail list
-	 *
-	 * Note, the results returned by this endpoint can be cached.
-	 *
-	 * @param string $listUid
-	 * @param integer $page
-	 * @param integer $perPage
-	 *
-	 * @return MailWizzApi_Http_Response
-	 * @throws ReflectionException
-	 */
+    /**
+     * Get segments from a certain mail list
+     *
+     * Note, the results returned by this endpoint can be cached.
+     *
+     * @param string $listUid
+     * @param integer $page
+     * @param integer $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
     public function getSegments($listUid, $page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
