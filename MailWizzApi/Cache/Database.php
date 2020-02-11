@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains the Database cache class used in the MailWizzApi PHP-SDK.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link https://www.mailwizz.com/
  * @copyright 2013-2020 https://www.mailwizz.com/
@@ -10,9 +10,9 @@
  
 /**
  * MailWizzApi_Cache_Database makes use of the PHP's {@link PDO} extension in order to cache data into a database.
- * 
+ *
  * For now it only supports Mysql and SQlite.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Cache
@@ -22,7 +22,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
 {
     /**
      * @var PDO the PDO instance that should be imported.
-     * 
+     *
      * This is useful when the SDK is integrated with another application and you
      * have access to the database object.
      */
@@ -50,7 +50,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * @var bool whether to create or not the database table.
-     * 
+     *
      * Set this to true for the first call, then after the database is created,
      * set it back to false.
      */
@@ -63,18 +63,18 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * @var string the current driver in use.
-     * 
+     *
      * This is autodetected based on the connection string.
      */
     private $_driver;
     
     /**
      * Cache data by given key.
-     * 
+     *
      * For consistency, the key will go through sha1() before it is saved.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::set()}.
-     * 
+     *
      * @param string $key
      * @param mixed $value
      * @return bool
@@ -99,12 +99,12 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get cached data by given key.
-     * 
-     * For consistency, the key will go through sha1() 
+     *
+     * For consistency, the key will go through sha1()
      * before it will be used to retrieve the cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::get()}.
-     * 
+     *
      * @param string $key
      * @return mixed
      */
@@ -121,17 +121,17 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
         $sth->execute(array(':k' => $key));
         $row = $sth->fetch(PDO::FETCH_ASSOC);
         $sth->closeCursor();
-        return $this->_loaded[$key] = !empty($row['value']) ? unserialize($row['value']) : null;    
+        return $this->_loaded[$key] = !empty($row['value']) ? unserialize($row['value']) : null;
     }
     
     /**
      * Delete cached data by given key.
-     * 
-     * For consistency, the key will go through sha1() 
+     *
+     * For consistency, the key will go through sha1()
      * before it will be used to delete the cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::delete()}.
-     * 
+     *
      * @param string $key
      * @return bool
      */
@@ -150,9 +150,9 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Delete all cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
-     * 
+     *
      * @return bool
      */
     public function flush()
@@ -165,13 +165,13 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Import a {@link PDO} connection to be reused instead of creating a new one.
-     * 
+     *
      * This is useful when the sdk is used inside another application that is already connected
-     * to the database using {@link PDO} and same driver. 
-     * 
+     * to the database using {@link PDO} and same driver.
+     *
      * In that case importing and reusing the connection makes more sense.
-     * 
-     * @param mixed $connection
+     *
+     * @param PDO $connection
      * @return MailWizzApi_Cache_Database
      */
     public function setImportConnection(PDO $connection)
@@ -182,7 +182,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get the imported connection, if any.
-     * 
+     *
      * @return mixed
      */
     public function getImportConnection()
@@ -192,7 +192,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Set the database access username.
-     * 
+     *
      * @param string $username
      * @return MailWizzApi_Cache_Database
      */
@@ -204,7 +204,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get the database access username.
-     * 
+     *
      * @return string
      */
     public function getUsername()
@@ -214,7 +214,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Set the database access password.
-     * 
+     *
      * @param string $password
      * @return MailWizzApi_Cache_Database
      */
@@ -226,7 +226,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get the database access password.
-     * 
+     *
      * @return string
      */
     public function getPassword()
@@ -236,19 +236,19 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
 
     /**
      * Set the name of the database table.
-     * 
+     *
      * @param string $name
      * @return MailWizzApi_Cache_Database
      */
     public function setTableName($name)
     {
-        $this->_tableName = htmlspecialchars($name, ENT_QUOTES, $this->getCharset());
+        $this->_tableName = htmlspecialchars($name, ENT_QUOTES, 'utf-8');
         return $this;
     }
     
     /**
      * Get the name of the database table name.
-     * 
+     *
      * @return string
      */
     public function getTableName()
@@ -258,7 +258,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Set whether the database table should be created or not.
-     * 
+     *
      * @param bool $bool
      * @return MailWizzApi_Cache_Database
      */
@@ -270,7 +270,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get whether the database table should be created or not.
-     * 
+     *
      * @return bool
      */
     public function getCreateTable()
@@ -280,10 +280,10 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Set the database connection string.
-     * 
-     * Please note, this needs to be a valid DSN, see: 
+     *
+     * Please note, this needs to be a valid DSN, see:
      * http://php.net/manual/en/ref.pdo-mysql.connection.php
-     * 
+     *
      * @param string $string
      * @return MailWizzApi_Cache_Database
      */
@@ -295,19 +295,22 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Get the database connection string.
-     * 
+     *
      * @return string
      */
     public function getConnectionString()
     {
         return $this->_connectionString;
     }
-    
+
     /**
      * Create the database table if it doesn't exists.
-     * 
-     * Please make sure you disable the table creation after the table has been created 
+     *
+     * Please make sure you disable the table creation after the table has been created
      * otherwise it will cause unnecessary overhead.
+     *
+     * @return void
+     * @throws Exception
      */
     protected function createTable()
     {
@@ -321,7 +324,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
             );
             CREATE INDEX `key` ON `'.$this->getTableName().'` (`key`);
             COMMIT;
-            ';    
+            ';
         } elseif ($this->_driver === 'mysql') {
             $sql = '
             CREATE TABLE IF NOT EXISTS `'.$this->getTableName().'` (
@@ -341,8 +344,9 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
 
     /**
      * Get the PDO connection.
-     * 
+     *
      * @return PDO
+     * @throws Exception
      */
     public function getConnection()
     {
@@ -350,15 +354,11 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
             $this->_connection = $this->getImportConnection();
         }
         
-        if ($this->_connection instanceof PDO) {
-            return $this->_connection;
-        }
-        
         $connectionParts = explode(':', $this->getConnectionString());
-        $this->_driver = array_shift($connectionParts);
+        $this->_driver = (string)array_shift($connectionParts);
         
         if ($this->getCreateTable() && $this->_driver === 'sqlite') {
-            $dbPath = array_shift($connectionParts);
+            $dbPath = (string)array_shift($connectionParts);
             $dir = dirname($dbPath);
             if (!is_dir($dir)) {
                 throw new Exception('The database storage directory: "'.$dir.'" does not exists.');
@@ -369,7 +369,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
             if (!is_file($dbPath)) {
                 touch($dbPath);
             }
-        } 
+        }
         
         $this->_connection    = new PDO($this->getConnectionString(), $this->getUsername(), $this->getPassword());
         $this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -383,9 +383,9 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
     
     /**
      * Close the database connection.
-     * 
+     *
      * This will only work if the connection is not imported.
-     * 
+     *
      * @return MailWizzApi_Cache_Database
      */
     public function closeConnection()
@@ -393,7 +393,7 @@ class MailWizzApi_Cache_Database extends MailWizzApi_Cache_Abstract
         if (!empty($this->_importConnection)) {
             return $this;
         }
-        $this->_connection = null;
+        unset($this->_connection);
         return $this;
     }
 }

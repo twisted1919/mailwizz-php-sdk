@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains the File cache class used in the MailWizzApi PHP-SDK.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link https://www.mailwizz.com/
  * @copyright 2013-2020 https://www.mailwizz.com/
@@ -10,7 +10,7 @@
  
 /**
  * MailWizzApi_Cache_File makes use of the file system in order to cache data.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Cache
@@ -20,20 +20,20 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
 {
     /**
      * @var string the path to the directory where the cache files will be stored.
-     * 
+     *
      * Please note, the cache directory needs to be writable by the web server (chmod 0777).
-     * 
+     *
      * Defaults to data/cache under same directory.
      */
     private $_filesPath;
 
     /**
      * Cache data by given key.
-     * 
+     *
      * For consistency, the key will go through sha1() before it is saved.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::set()}.
-     * 
+     *
      * @param string $key
      * @param mixed $value
      * @return bool
@@ -47,17 +47,17 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
             }
         }
         $key = sha1($key);
-        return @file_put_contents($this->getFilesPath() . '/' . $key.'.bin', $value);
+        return (bool)@file_put_contents($this->getFilesPath() . '/' . $key.'.bin', $value);
     }
     
     /**
      * Get cached data by given key.
-     * 
-     * For consistency, the key will go through sha1() 
+     *
+     * For consistency, the key will go through sha1()
      * before it will be used to retrieve the cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::get()}.
-     * 
+     *
      * @param string $key
      * @return mixed
      */
@@ -73,17 +73,18 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
             return $this->_loaded[$key] = null;
         }
         
-        return $this->_loaded[$key] = unserialize(file_get_contents($file));    
+        $fileContents = (string)file_get_contents($file);
+        return $this->_loaded[$key] = unserialize($fileContents);
     }
     
     /**
      * Delete cached data by given key.
-     * 
-     * For consistency, the key will go through sha1() 
+     *
+     * For consistency, the key will go through sha1()
      * before it will be used to delete the cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::delete()}.
-     * 
+     *
      * @param string $key
      * @return bool
      */
@@ -105,9 +106,9 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
     
     /**
      * Delete all cached data.
-     * 
+     *
      * This method implements {@link MailWizzApi_Cache_Abstract::flush()}.
-     * 
+     *
      * @return bool
      */
     public function flush()
@@ -118,8 +119,8 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
     
     /**
      * Set the cache path.
-     * 
-     * @param string the path to the directory that will store the files
+     *
+     * @param string $path the path to the directory that will store the files
      * @return MailWizzApi_Cache_File
      */
     public function setFilesPath($path)
@@ -131,12 +132,12 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
     }
     
     /**
-     * Get the cache path. 
-     * 
+     * Get the cache path.
+     *
      * It defaults to "data/cache" under the same directory.
-     * 
+     *
      * Please make sure the given directoy is writable by the webserver(chmod 0777).
-     * 
+     *
      * @return string
      */
     public function getFilesPath()
@@ -149,7 +150,7 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
     
     /**
      * Helper method to clear the cache directory contents
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -164,14 +165,13 @@ class MailWizzApi_Cache_File extends MailWizzApi_Cache_Abstract
         }
         
         while (($file = readdir($handle)) !== false) {
-            
-            if($file[0] === '.') {
+            if ($file[0] === '.') {
                 continue;
             }
             
             $fullPath=$path.DIRECTORY_SEPARATOR.$file;
             
-            if(is_dir($fullPath)) {
+            if (is_dir($fullPath)) {
                 $this->doFlush($fullPath);
             } else {
                 @unlink($fullPath);

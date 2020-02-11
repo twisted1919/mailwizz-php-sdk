@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains the MailWizzApi_Http_Client class used in the MailWizzApi PHP-SDK.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link https://www.mailwizz.com/
  * @copyright 2013-2020 https://www.mailwizz.com/
@@ -10,7 +10,7 @@
  
 /**
  * MailWizzApi_Http_Client is the http client interface used to make the remote requests and receive the responses.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Http
@@ -46,27 +46,27 @@ class MailWizzApi_Http_Client extends MailWizzApi_Base
     /**
      * @var MailWizzApi_Params the GET params sent in the request.
      */
-    public $paramsGet = array();
+    public $paramsGet;
     
     /**
      * @var MailWizzApi_Params the POST params sent in the request.
      */
-    public $paramsPost = array();
+    public $paramsPost;
     
     /**
      * @var MailWizzApi_Params the PUT params sent in the request.
      */
-    public $paramsPut = array();
+    public $paramsPut;
     
     /**
      * @var MailWizzApi_Params the DELETE params sent in the request.
      */
-    public $paramsDelete = array();
+    public $paramsDelete;
     
     /**
      * @var MailWizzApi_Params the headers sent in the request.
      */
-    public $headers = array();
+    public $headers;
 
     /**
      * @var string the url where the remote calls will be made.
@@ -98,67 +98,71 @@ class MailWizzApi_Http_Client extends MailWizzApi_Base
      */
     public $method = self::METHOD_GET;
 
-    /**
-     * Constructor.
-     * 
-     * @param mixed $options
-     */
+	/**
+	 * Constructor.
+	 *
+	 * @param array $options
+	 *
+	 * @throws ReflectionException
+	 * @throws Exception
+	 */
     public function __construct(array $options = array())
     {
         $this->populateFromArray($options);
         
         foreach (array('paramsGet', 'paramsPost', 'paramsPut', 'paramsDelete', 'headers') as $param) {
             if (!($this->$param instanceof MailWizzApi_Params)) {
-                $this->$param = new MailWizzApi_Params($this->$param);
+                $this->$param = new MailWizzApi_Params(!is_array($this->$param) ? array() : $this->$param);
             }
         }
     }
 
     /**
      * Whether the request method is a GET method.
-     * 
+     *
      * @return bool
      */
-    public function getIsGetMethod() 
+    public function getIsGetMethod()
     {
         return strtoupper($this->method) === self::METHOD_GET;
     }
     
     /**
      * Whether the request method is a POST method.
-     * 
+     *
      * @return bool
      */
-    public function getIsPostMethod() 
+    public function getIsPostMethod()
     {
         return strtoupper($this->method) === self::METHOD_POST;
     }
     
     /**
      * Whether the request method is a PUT method.
-     * 
+     *
      * @return bool
      */
-    public function getIsPutMethod() 
+    public function getIsPutMethod()
     {
         return strtoupper($this->method) === self::METHOD_PUT;
     }
     
     /**
      * Whether the request method is a DELETE method.
-     * 
+     *
      * @return bool
      */
-    public function getIsDeleteMethod() 
+    public function getIsDeleteMethod()
     {
         return strtoupper($this->method) === self::METHOD_DELETE;
     }
-    
-    /**
-     * Makes the request to the remote host.
-     * 
-     * @return MailWizzApi_Http_Response
-     */
+
+	/**
+	 * Makes the request to the remote host.
+	 *
+	 * @return MailWizzApi_Http_Response
+	 * @throws Exception
+	 */
     public function request()
     {
         $request = new MailWizzApi_Http_Request($this);

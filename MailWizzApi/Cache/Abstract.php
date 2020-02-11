@@ -1,9 +1,9 @@
 <?php
 /**
  * This file contains the base class for implementing caching in the MailWizzApi PHP-SDK.
- * 
+ *
  * Each class extending this one needs to implement the abstract methods.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link https://www.mailwizz.com/
  * @copyright 2013-2020 https://www.mailwizz.com/
@@ -12,7 +12,7 @@
  
 /**
  * MailWizzApi_Cache_Abstract is the base class that all the caching classes should extend.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Cache
@@ -27,7 +27,7 @@ abstract class MailWizzApi_Cache_Abstract extends MailWizzApi_Base
     
     /**
      * Set data into the cache
-     * 
+     *
      * @param string $key
      * @param mixed $value
      * @return bool
@@ -36,7 +36,7 @@ abstract class MailWizzApi_Cache_Abstract extends MailWizzApi_Base
     
     /**
      * Get data from the cache
-     * 
+     *
      * @param string $key
      * @return mixed
      */
@@ -44,7 +44,7 @@ abstract class MailWizzApi_Cache_Abstract extends MailWizzApi_Base
     
     /**
      * Delete data from cache
-     * 
+     *
      * @param string $key
      * @return bool
      */
@@ -52,7 +52,7 @@ abstract class MailWizzApi_Cache_Abstract extends MailWizzApi_Base
     
     /**
      * Delete all data from cache
-     * 
+     *
      * @return bool
      */
     abstract public function flush();

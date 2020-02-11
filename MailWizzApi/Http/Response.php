@@ -1,7 +1,7 @@
 <?php
 /**
  * This file contains the MailWizzApi_Http_Response class used in the MailWizzApi PHP-SDK.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @link https://www.mailwizz.com/
  * @copyright 2013-2020 https://www.mailwizz.com/
@@ -10,7 +10,7 @@
  
 /**
  * MailWizzApi_Http_Response is the class used to get the responses back from the API endpoints.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @subpackage Http
@@ -44,7 +44,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     public $curlCode = 0;
     
     /**
-     * @var string $curlMessage the curl response message. 
+     * @var string $curlMessage the curl response message.
      */
     public $curlMessage;
     
@@ -141,7 +141,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Contructor.
-     * 
+     *
      * @param MailWizzApi_Http_Request $request
      */
     public function __construct(MailWizzApi_Http_Request $request)
@@ -152,7 +152,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Set the http code and http message based on the received response
-     * 
+     *
      * @param int $code
      * @return MailWizzApi_Http_Response
      */
@@ -165,7 +165,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Get the received http code.
-     * 
+     *
      * @return int
      */
     public function getHttpCode()
@@ -175,7 +175,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
 
     /**
      * Whether the response contains a curl error.
-     * 
+     *
      * @return bool
      */
     public function getIsCurlError()
@@ -185,7 +185,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Whether the response contains a http error.
-     * 
+     *
      * @return bool
      */
     public function getIsHttpError()
@@ -195,7 +195,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Whether the response is successful.
-     * 
+     *
      * @return bool
      */
     public function getIsSuccess()
@@ -205,7 +205,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Whether the response is not successful
-     * 
+     *
      * @return bool
      */
     public function getIsError()
@@ -215,7 +215,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * If there is a http error or a curl error, retrieve the error message.
-     * 
+     *
      * @return mixed
      */
     public function getMessage()
@@ -233,7 +233,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * If there is a http error or a curl error, retrieve the error code.
-     * 
+     *
      * @return mixed
      */
     public function getCode()
@@ -251,7 +251,7 @@ class MailWizzApi_Http_Response extends MailWizzApi_Base
     
     /**
      * Calls all the setters and populate the class based on the given array.
-     * 
+     *
      * @param array $params
      * @return MailWizzApi_Http_Response
      */

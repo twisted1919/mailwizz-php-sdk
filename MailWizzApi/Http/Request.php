@@ -42,6 +42,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
      * Send the request to the remote url.
      *
      * @return MailWizzApi_Http_Response
+     * @throws Exception
      */
     public function send()
     {
@@ -50,8 +51,8 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         }
 
         $client         = $this->client;
-        $registry       = $this->registry;
-        $isCacheable    = $registry->contains('cache') && $client->isGetMethod && $client->enableCache;
+        $registry       = $this->getRegistry();
+        $isCacheable    = $registry->contains('cache') && $client->getIsGetMethod() && $client->enableCache;
         $requestUrl     = rtrim($client->url, '/'); // no trailing slash
         $scheme         = parse_url($requestUrl, PHP_URL_SCHEME);
 
@@ -66,19 +67,30 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 
         $this->sign($requestUrl);
 
+        $etagCache = '';
+        $cacheKey  = '';
+        
+        /** @var MailWizzApi_Cache_Abstract $cacheComponent */
+        $cacheComponent = null;
+        
         if ($isCacheable) {
             $client->getResponseHeaders = true;
 
             $bodyFromCache  = null;
-            $etagCache      = null;
+            $etagCache      = '';
             $params         = $getParams;
 
             foreach (array('X-MW-PUBLIC-KEY', 'X-MW-TIMESTAMP', 'X-MW-REMOTE-ADDR') as $header) {
                 $params[$header] = $client->headers->itemAt($header);
             }
 
-            $cacheKey    = $requestUrl;
-            $cache        = $this->cache->get($cacheKey);
+            $cacheKey = $requestUrl;
+            
+            /** @var MailWizzApi_Cache_Abstract $cacheComponent */
+            $cacheComponent = $registry->itemAt('cache');
+            
+            /** @var array $cache */
+            $cache = $cacheComponent->get($cacheKey);
 
             if (isset($cache['headers']) && is_array($cache['headers'])) {
                 foreach ($cache['headers'] as $header) {
@@ -92,16 +104,20 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
             }
         }
 
-        if ($client->isPutMethod || $client->isDeleteMethod) {
+        if ($client->getIsPutMethod() || $client->getIsDeleteMethod()) {
             $client->headers->add('X-HTTP-Method-Override', strtoupper($client->method));
         }
 
         $ch = curl_init($requestUrl);
+        if (!is_resource($ch)) {
+            throw new Exception('Cannot initialize curl!');
+        }
+        
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $client->timeout);
         curl_setopt($ch, CURLOPT_TIMEOUT, $client->timeout);
-        curl_setopt($ch, CURLOPT_USERAGENT , 'MailWizzApi Client version '. MailWizzApi_Http_Client::CLIENT_VERSION);
-        curl_setopt($ch, CURLOPT_AUTOREFERER , true);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'MailWizzApi Client version '. MailWizzApi_Http_Client::CLIENT_VERSION);
+        curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 
         if ($client->getResponseHeaders) {
             curl_setopt($ch, CURLOPT_VERBOSE, true);
@@ -117,7 +133,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 
         if ($client->headers->count > 0) {
             $headers = array();
-            foreach($client->headers as $name => $value) {
+            foreach ($client->headers as $name => $value) {
                 $headers[] = $name.': '.$value;
             }
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -128,13 +144,12 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         //    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
         //}
 
-        if ($client->isPostMethod || $client->isPutMethod || $client->isDeleteMethod) {
-
+        if ($client->getIsPostMethod() || $client->getIsPutMethod() || $client->getIsDeleteMethod()) {
             $params = new MailWizzApi_Params($client->paramsPost);
             $params->mergeWith($client->paramsPut);
             $params->mergeWith($client->paramsDelete);
 
-            if (!$client->isPostMethod) {
+            if (!$client->getIsPostMethod()) {
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($client->method));
             }
 
@@ -142,9 +157,9 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params->toArray(), '', '&'));
         }
 
-        $body           = curl_exec($ch);
-        $curlCode       = curl_errno($ch);
-        $curlMessage    = curl_error($ch);
+        $body           = (string)curl_exec($ch);
+        $curlCode       = (int)curl_errno($ch);
+        $curlMessage    = (string)curl_error($ch);
 
         $curlInfo = curl_getinfo($ch);
         $params = $this->params = new MailWizzApi_Params($curlInfo);
@@ -164,7 +179,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 
         $decodedBody = array();
         if ($curlCode === 0 && !empty($body)) {
-	        $decodedBody = json_decode($decodedBody, true);
+            $decodedBody = json_decode($body, true);
             if (!is_array($decodedBody)) {
                 $decodedBody = array();
             }
@@ -182,14 +197,14 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         $response = new MailWizzApi_Http_Response($this);
         $body = $response->body;
 
-        if (!$response->isSuccess && $body->itemAt('status') !== 'success' && !$body->contains('error')) {
+        if (!$response->getIsSuccess() && $body->itemAt('status') !== 'success' && !$body->contains('error')) {
             $response->body->add('status', 'error');
-            $response->body->add('error', $response->message);
+            $response->body->add('error', $response->getMessage());
         }
 
         curl_close($ch);
 
-        if ($isCacheable && $response->isSuccess && $body->itemAt('status') == 'success') {
+        if ($isCacheable && $response->getIsSuccess() && $body->itemAt('status') == 'success') {
             $etagNew = null;
             foreach ($response->headers as $header) {
                 if (preg_match('/etag:(\s+)?(.*)/ix', $header, $matches)) {
@@ -198,7 +213,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
                 }
             }
             if ($etagNew && $etagNew != $etagCache) {
-                $this->cache->set($cacheKey, array(
+                $cacheComponent->set($cacheKey, array(
                     'headers'   => $response->headers->toArray(),
                     'body'      => $response->body->toArray(),
                 ));
@@ -214,11 +229,16 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
 
     /**
      * Sign the current request.
+     *
+     * @param string $requestUrl
+     * @return void
+     *
+     * @throws Exception
      */
     protected function sign($requestUrl)
     {
         $client = $this->client;
-        $config = $this->config;
+        $config = $this->getConfig();
 
         $publicKey  = $config->publicKey;
         $privateKey = $config->privateKey;

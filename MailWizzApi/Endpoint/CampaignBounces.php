@@ -18,21 +18,23 @@
  */
 class MailWizzApi_Endpoint_CampaignBounces extends MailWizzApi_Base
 {
-    /**
-     * Get bounces from a certain campaign
-     *
-     * Note, the results returned by this endpoint can be cached.
-     *
-     * @param string $campaignUid
-     * @param integer $page
-     * @param integer $perPage
-     * @return MailWizzApi_Http_Response
-     */
+	/**
+	 * Get bounces from a certain campaign
+	 *
+	 * Note, the results returned by this endpoint can be cached.
+	 *
+	 * @param string $campaignUid
+	 * @param integer $page
+	 * @param integer $perPage
+	 *
+	 * @return MailWizzApi_Http_Response
+	 * @throws ReflectionException
+	 */
     public function getBounces($campaignUid, $page = 1, $perPage = 10)
     {
         $client = new MailWizzApi_Http_Client(array(
             'method'        => MailWizzApi_Http_Client::METHOD_GET,
-            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/bounces', $campaignUid)),
+            'url'           => $this->getConfig()->getApiUrl(sprintf('campaigns/%s/bounces', $campaignUid)),
             'paramsGet'     => array(
                 'page'      => (int)$page,
                 'per_page'  => (int)$perPage,
@@ -43,18 +45,20 @@ class MailWizzApi_Endpoint_CampaignBounces extends MailWizzApi_Base
         return $response = $client->request();
     }
 
-    /**
-     * Create a new bounce in the given campaign
-     *
-     * @param string $campaignUid
-     * @param array $data
-     * @return MailWizzApi_Http_Response
-     */
+	/**
+	 * Create a new bounce in the given campaign
+	 *
+	 * @param string $campaignUid
+	 * @param array $data
+	 *
+	 * @return MailWizzApi_Http_Response
+	 * @throws ReflectionException
+	 */
     public function create($campaignUid, array $data)
     {
         $client = new MailWizzApi_Http_Client(array(
             'method'        => MailWizzApi_Http_Client::METHOD_POST,
-            'url'           => $this->config->getApiUrl(sprintf('campaigns/%s/bounces', (string)$campaignUid)),
+            'url'           => $this->getConfig()->getApiUrl(sprintf('campaigns/%s/bounces', (string)$campaignUid)),
             'paramsPost'    => $data,
         ));
 

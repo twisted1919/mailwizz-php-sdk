@@ -10,12 +10,11 @@
 // require the setup which has registered the autoloader
 require_once dirname(__FILE__) . '/setup.php';
 
-// see if the request is made via ajax.    
+// see if the request is made via ajax.
 $isAjaxRequest = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 
 // and if it is and we have post values, then we can proceed in sending the subscriber.
 if ($isAjaxRequest && !empty($_POST)) {
-
     $listUid    = 'LIST-UNIQUE-ID';// you'll take this from your customers area, in list overview from the address bar.
     $endpoint   = new MailWizzApi_Endpoint_ListSubscribers();
     $response   = $endpoint->create($listUid, array(

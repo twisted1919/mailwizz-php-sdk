@@ -10,20 +10,20 @@
  
 /**
  * The MailWizzApi Autoloader class.
- * 
+ *
  * From within a Yii Application, you would load this as:
- * 
+ *
  * <pre>
  * require_once(Yii::getPathOfAlias('application.vendors.MailWizzApi.Autoloader').'.php');
  * Yii::registerAutoloader(array('MailWizzApi_Autoloader', 'autoloader'), true);
  * </pre>
- * 
+ *
  * Alternatively you can:
  * <pre>
  * require_once('Path/To/MailWizzApi/Autoloader.php');
  * MailWizzApi_Autoloader::register();
  * </pre>
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @since 1.0
@@ -32,8 +32,9 @@ class MailWizzApi_Autoloader
 {
     /**
      * The registrable autoloader
-     * 
+     *
      * @param string $class
+     * @return void
      */
     public static function autoloader($class)
     {
@@ -49,9 +50,11 @@ class MailWizzApi_Autoloader
     
     /**
      * Registers the MailWizzApi_Autoloader::autoloader()
+     *
+     * @return void
      */
     public static function register()
     {
-        spl_autoload_register(array('MailWizzApi_Autoloader', 'autoloader'));
+        spl_autoload_register('MailWizzApi_Autoloader::autoloader');
     }
 }

@@ -49,10 +49,10 @@ $response = $endpoint->create(array(
     
     // optional block, defaults are shown
     'options' => array(
-        'url_tracking'      => 'no', // yes | no 
-        'json_feed'         => 'no', // yes | no 
-        'xml_feed'          => 'no', // yes | no  
-        'plain_text_email'  => 'yes',// yes | no 
+        'url_tracking'      => 'no', // yes | no
+        'json_feed'         => 'no', // yes | no
+        'xml_feed'          => 'no', // yes | no
+        'plain_text_email'  => 'yes',// yes | no
         'email_stats'       => null, // a valid email address where we should send the stats after campaign done
         
         // - if autoresponder uncomment bellow:
@@ -98,10 +98,10 @@ $response = $endpoint->update('CAMPAIGN-UNIQUE-ID', array(
     
     // optional block, defaults are shown
     'options' => array(
-        'url_tracking'      => 'no', // yes | no 
-        'json_feed'         => 'no', // yes | no 
-        'xml_feed'          => 'no', // yes | no  
-        'plain_text_email'  => 'yes',// yes | no 
+        'url_tracking'      => 'no', // yes | no
+        'json_feed'         => 'no', // yes | no
+        'xml_feed'          => 'no', // yes | no
+        'plain_text_email'  => 'yes',// yes | no
         'email_stats'       => null, // a valid email address where we should send the stats after campaign done
     ),
     

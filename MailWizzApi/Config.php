@@ -9,10 +9,10 @@
  
  
 /**
- * MailWizzApi_Config contains the configuration class that is injected at runtime into the main application. 
- * 
+ * MailWizzApi_Config contains the configuration class that is injected at runtime into the main application.
+ *
  * It's only purpose is to set the needed data so that the API calls will run without problems.
- * 
+ *
  * @author Serban George Cristian <cristian.serban@mailwizz.com>
  * @package MailWizzApi
  * @since 1.0
@@ -41,7 +41,10 @@ class MailWizzApi_Config extends MailWizzApi_Base
 
     /**
      * Constructor
-     * @param array the config array that will populate the class properties.
+     *
+     * @param array $config the config array that will populate the class properties.
+     *
+     * @throws ReflectionException
      */
     public function __construct(array $config = array())
     {
@@ -50,14 +53,16 @@ class MailWizzApi_Config extends MailWizzApi_Base
 
     /**
      * Setter for the API url.
-     * 
-     * Please note, this url should NOT contain any endpoint, 
+     *
+     * Please note, this url should NOT contain any endpoint,
      * just the base url to the API.
-     * 
+     *
      * Also, a basic url check is done, but you need to make sure the url is valid.
-     * 
+     *
      * @param mixed $url
+     *
      * @return MailWizzApi_Config
+     * @throws Exception
      */
     public function setApiUrl($url)
     {
@@ -68,14 +73,16 @@ class MailWizzApi_Config extends MailWizzApi_Base
         $this->_apiUrl = trim($url, '/') . '/';
         return $this;
     }
-    
+
     /**
      * Getter for the API url.
-     * 
+     *
      * Also, you can use the $endpoint param to point the request to a certain endpoint.
-     * 
+     *
      * @param string $endpoint
+     *
      * @return string
+     * @throws Exception
      */
     public function getApiUrl($endpoint = null)
     {

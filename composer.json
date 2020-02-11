@@ -16,5 +16,8 @@
   },
   "autoload": {
     "files": ["MailWizzApi/autoload.php"]
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^0.12.9"
   }
 }
