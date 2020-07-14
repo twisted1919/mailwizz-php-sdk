@@ -19,6 +19,12 @@ You can either download latest version of the code or you can install it via com
 Then follow the instructions from `examples/setup.php` file.
 
 ## Test  
+Following environment variables have to be set, with their proper values:  
+`MAILWIZZ_API_URL`  
+`MAILWIZZ_API_PUBLIC_KEY`  
+`MAILWIZZ_API_PRIVATE_KEY` 
+ 
+Then you can run the tests:
 ```bash
 $ composer test
 ``` 
