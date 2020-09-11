@@ -204,4 +204,22 @@ class MailWizzApi_Endpoint_Campaigns extends MailWizzApi_Base
         
         return $response = $client->request();
     }
+
+	/**
+	 * Get the stats for an existing campaign for the customer
+	 *
+	 * @param string $campaignUid
+	 *
+	 * @return MailWizzApi_Http_Response
+	 * @throws ReflectionException
+	 */
+	public function getStats($campaignUid)
+	{
+		$client = new MailWizzApi_Http_Client(array(
+			'method'    => MailWizzApi_Http_Client::METHOD_GET,
+			'url'       => $this->getConfig()->getApiUrl(sprintf('campaigns/%s/stats', $campaignUid)),
+		));
+
+		return $response = $client->request();
+	}
 }
