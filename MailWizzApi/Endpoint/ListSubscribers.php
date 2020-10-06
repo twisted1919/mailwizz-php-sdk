@@ -333,6 +333,78 @@ class MailWizzApi_Endpoint_ListSubscribers extends MailWizzApi_Base
     }
 
     /**
+     * Search in a list for given subscribers by status
+     *
+     * @param string $listUid
+     * @param string $status
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
+    public function searchByStatus($listUid, $status, $page = 1, $perPage = 10)
+    {
+        $client = new MailWizzApi_Http_Client(array(
+            'method'        => MailWizzApi_Http_Client::METHOD_GET,
+            'url'           => $this->getConfig()->getApiUrl(sprintf('lists/%s/subscribers', $listUid)),
+            'paramsGet'     => array(
+                'page'      => (int)$page,
+                'per_page'  => (int)$perPage,
+                'status'    => $status,
+            ),
+            'enableCache'   => true,
+        ));
+
+        return $response = $client->request();
+    }
+
+    /**
+     * Get only the confirmed subscribers
+     *
+     * @param string $listUid
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
+    public function getConfirmedSubscribers($listUid, $page = 1, $perPage = 10)
+    {
+        return $this->searchByStatus($listUid, 'confirmed', $page, $perPage);
+    }
+
+    /**
+     * Get only the unconfirmed subscribers
+     *
+     * @param string $listUid
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
+    public function getUnconfirmedSubscribers($listUid, $page = 1, $perPage = 10)
+    {
+        return $this->searchByStatus($listUid, 'unconfirmed', $page, $perPage);
+    }
+
+    /**
+     * Get only the unsubscribed subscribers
+     *
+     * @param string $listUid
+     * @param int $page
+     * @param int $perPage
+     *
+     * @return MailWizzApi_Http_Response
+     * @throws ReflectionException
+     */
+    public function getUnsubscribedSubscribers($listUid, $page = 1, $perPage = 10)
+    {
+        return $this->searchByStatus($listUid, 'unsubscribed', $page, $perPage);
+    }
+
+    /**
      * Create or update a subscriber in given list
      *
      * @param string $listUid
