@@ -156,7 +156,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
             curl_setopt($ch, CURLOPT_POST, $params->count);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params->toArray(), '', '&'));
         }
-
+   curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
         $body           = (string)curl_exec($ch);
         $curlCode       = (int)curl_errno($ch);
         $curlMessage    = (string)curl_error($ch);
