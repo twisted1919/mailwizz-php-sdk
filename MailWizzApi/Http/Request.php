@@ -120,7 +120,7 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 
         if ($client->getResponseHeaders) {
-            curl_setopt($ch, CURLOPT_VERBOSE, true);
+            // curl_setopt($ch, CURLOPT_VERBOSE, true);
             curl_setopt($ch, CURLOPT_HEADER, true);
         }
 
