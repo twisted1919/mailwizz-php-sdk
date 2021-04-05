@@ -109,7 +109,8 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         }
 
         $ch = curl_init($requestUrl);
-        if (!is_resource($ch)) {
+        if ( (version_compare(PHP_VERSION, '8.0.0', '<') && !is_resource($ch))
+            || (version_compare(PHP_VERSION, '8.0.0', '>=') && !$ch instanceof \CurlHandle) ) {
             throw new Exception('Cannot initialize curl!');
         }
         
