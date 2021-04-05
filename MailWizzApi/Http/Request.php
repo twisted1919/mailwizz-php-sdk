@@ -109,9 +109,9 @@ class MailWizzApi_Http_Request extends MailWizzApi_Base
         }
 
         $ch = curl_init($requestUrl);
-        if (!is_resource($ch)) {
-            throw new Exception('Cannot initialize curl!');
-        }
+	    if ($ch === false) {
+		    throw new Exception('Cannot initialize curl!');
+	    }
         
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $client->timeout);
